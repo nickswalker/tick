@@ -3,7 +3,7 @@
 
 @class BlueShield;
 
-@interface TICKViewController : UITableViewController
+@interface TICKViewController : UITableViewController <UIAlertViewDelegate>
 
 @property (nonatomic, strong) BlueShield *shield;
 @property (nonatomic, strong) CBPeripheral *peripheral;
