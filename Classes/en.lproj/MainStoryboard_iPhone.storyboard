@@ -122,7 +122,13 @@
                             <outlet property="delegate" destination="oPb-2J-WVt" id="Qpc-Kx-GgG"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Tick" id="TS3-UZ-oPx"/>
+                    <navigationItem key="navigationItem" title="Tick" id="TS3-UZ-oPx">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="j1V-No-Inq">
+                            <connections>
+                                <action selector="refresh:" destination="oPb-2J-WVt" id="xHY-2S-kSg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="bSlider" destination="pxd-wj-WYN" id="GFC-3C-cSY"/>
                         <outlet property="gSlider" destination="LId-GH-2cT" id="eid-tC-Cjh"/>
@@ -310,7 +316,7 @@
                                                         <!--2014-04-06 11:30:00 +0000-->
                                                     </date>
                                                     <timeZone key="timeZone" name="America/Los_Angeles">
-                                                        <mutableData key="data">
+                                                        <data key="data">
 VFppZgAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAC5AAAABAAAABCepkign7sVkKCGKqChmveQ
 y4kaoNIj9HDSYSYQ1v50INiArZDa/tGg28CQENzes6DdqayQ3r6VoN+JjpDgnneg4WlwkOJ+WaDjSVKQ
 5F47oOUpNJDmR1gg5xJREOgnOiDo8jMQ6gccIOrSFRDr5v4g7LH3EO3G4CDukdkQ76/8oPBxuxDxj96g
@@ -328,7 +334,7 @@ f5gqkAABAAECAwEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
-</mutableData>
+</data>
                                                     </timeZone>
                                                 </datePicker>
                                             </subviews>

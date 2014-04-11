@@ -11,6 +11,7 @@
 */
 
 #import "BlueShield.h"
+#import "BSDefines.h"
 
 @interface BlueShield ()
 
@@ -449,7 +450,9 @@
 - (void)didDiscoverCharacteristicsBlock:(BSSuccessBlock)block {
     _discoveredCharacteristicsBlock = block;
 }
-
+- (void)pairWithShield{
+	
+}
 
 #pragma mark - CBCentralManagerDelegate
 
@@ -510,6 +513,22 @@
     if (_updatedValueBlock) {
         _updatedValueBlock(characteristic.value, error);
     }
+}
+
+- (void)sendText:(NSString*)string {
+	NSLog(string);
+    NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
+    [self writeValue:[CBUUID UUIDWithString:BS_SERIAL_SERVICE_UUID]
+     characteristicUUID:[CBUUID UUIDWithString:BS_SERIAL_TX_UUID]
+                      p: self.activePeripheral
+                   data:data];
+}
+- (void)sendBytes:(const void *)message {
+    NSData *data = [NSData dataWithBytes:message length:sizeof(message)];
+    [self writeValue:[CBUUID UUIDWithString:BS_SERIAL_SERVICE_UUID]
+     characteristicUUID:[CBUUID UUIDWithString:BS_SERIAL_TX_UUID]
+                      p: self.activePeripheral
+                   data:data];
 }
 
 /*

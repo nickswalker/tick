@@ -11,7 +11,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+	[_shield didDiscoverCharacteristicsBlock:^(id response, NSError *error) {
+		double delayInSeconds = 3.0;
+		dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+		dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+			[_shield notification:[CBUUID UUIDWithString:BS_SERIAL_SERVICE_UUID]
+			   characteristicUUID:[CBUUID UUIDWithString:BS_SERIAL_RX_UUID]
+								p:_peripheral
+							   on:YES];
+			
+			
+			[_shield didUpdateValueBlock:^(NSData *data, NSError *error) {
+				self.rxLabel.text = [[NSString alloc] initWithData:data
+													   encoding:NSUTF8StringEncoding];
+				
+				
+			}];
+		});
+	}];
 }
 
 - (void)didReceiveMemoryWarning
@@ -26,21 +43,7 @@
 }
 #pragma mark - custom method
 
-- (void)sendTx:(NSString*)string {
-	 NSLog(string);
-    NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
-    [_shield writeValue:[CBUUID UUIDWithString:BS_SERIAL_SERVICE_UUID]
-     characteristicUUID:[CBUUID UUIDWithString:BS_SERIAL_TX_UUID]
-                      p:_peripheral
-                   data:data];
-}
-- (void)sendBytes:(const void *)message {
-    NSData *data = [NSData dataWithBytes:&message length:sizeof(message)];
-    [_shield writeValue:[CBUUID UUIDWithString:BS_SERIAL_SERVICE_UUID]
-     characteristicUUID:[CBUUID UUIDWithString:BS_SERIAL_TX_UUID]
-                      p:_peripheral
-                   data:data];
-}
+
 
 #pragma mark - UITextFieldDelegate
 
@@ -51,7 +54,7 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     [textField resignFirstResponder];
-    [self sendTx : textField.text];
+    [self.shield sendText : textField.text];
 }
 
 @end

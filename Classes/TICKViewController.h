@@ -14,5 +14,6 @@
 @property IBOutlet UISlider *bSlider;
 
 - (IBAction)sliderValueChanged:(UISlider *)sender;
+- (IBAction)refresh:(id)sender;
 
 @end

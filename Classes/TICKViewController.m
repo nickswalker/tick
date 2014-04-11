@@ -8,9 +8,12 @@ typedef enum{
 	SETDATE = 1,
 	SETTIME = 2,
 	SETLIGHTCOLOR = 3,
-	SETALARM = 4,
-	SETSETTING = 5,
-	GETSETTING = 6
+	GETLIGHTCOLOR = 4,
+	SETALARM = 5,
+	GETALARM = 6,
+	SETSETTING = 7,
+	GETSETTING = 8,
+	TESTCONNECTION =255
 } Command;
 
 @interface TICKViewController ()
@@ -44,7 +47,7 @@ typedef enum{
 
 - (void)alertView:(UIAlertView *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
 	
-    if (buttonIndex == 2) {
+    if (buttonIndex == 0) {
         [self reloadClicked:self];
     } else {
         NSURL *url = [NSURL URLWithString:@"http://nickswalker.com"];
@@ -78,24 +81,7 @@ typedef enum{
 			
 			[_shield connectPeripheral:_peripheral];
 			[self syncCurrentDateAndTime];
-			[_shield didDiscoverCharacteristicsBlock:^(id response, NSError *error) {
-				double delayInSeconds = 3.0;
-				dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-				dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-					[_shield notification:[CBUUID UUIDWithString:BS_SERIAL_SERVICE_UUID]
-					   characteristicUUID:[CBUUID UUIDWithString:BS_SERIAL_RX_UUID]
-										p:_peripheral
-									   on:YES];
-					
-									
-					[_shield didUpdateValueBlock:^(NSData *data, NSError *error) {
-						NSString *recv = [[NSString alloc] initWithData:data
-															   encoding:NSUTF8StringEncoding];
-						
-						
-					}];
-				});
-			}];
+
 		}
 
 
@@ -107,29 +93,10 @@ typedef enum{
 	int b = (char)self.bSlider.value;
 	const char message[] = {SETLIGHTCOLOR, r, g, b};
 	
-	[self sendBytes:message];
+	[self.shield sendBytes:message];
 }
-
-#pragma mark - custom method
-
-- (void)sendTx:(NSString*)string {
-	NSLog(string);
-    NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
-    [_shield writeValue:[CBUUID UUIDWithString:BS_SERIAL_SERVICE_UUID]
-     characteristicUUID:[CBUUID UUIDWithString:BS_SERIAL_TX_UUID]
-                      p:_peripheral
-                   data:data];
-}
-
-- (void)sendBytes:(const void *)message {
-//	for (int i = 0; i < sizeof(message); i++) {
-//		printf("%x",&message[i]);
-//	}
-    NSData *data = [NSData dataWithBytes:message length:sizeof(message)];
-    [_shield writeValue:[CBUUID UUIDWithString:BS_SERIAL_SERVICE_UUID]
-     characteristicUUID:[CBUUID UUIDWithString:BS_SERIAL_TX_UUID]
-                      p:_peripheral
-                   data:data];
+- (IBAction)refresh:(id)sender{
+	[self syncCurrentDateAndTime];
 }
 
 #pragma mark - UITextFieldDelegate
@@ -145,11 +112,17 @@ typedef enum{
 {
 	NSDate *localDate = [NSDate date];
 	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-	dateFormatter.dateFormat = @"dd MM yyyy";
+	dateFormatter.dateFormat = @"s";
 	
 	NSString *dateString = [dateFormatter stringFromDate: localDate];
+	time_t time_t = [[NSDate date] timeIntervalSince1970];
+	NSLog(@"@%ld", time_t);
+	char byte1 = (time_t >> 24) & 0xFF;
+	char byte2 = (time_t >> 16) & 0xFF;
+	char byte3 = (time_t >> 8) & 0xFF;
+	char byte4 = (time_t >> 0) & 0xFF;
 	
-	
+	const char message[]  = {SETTIME, byte1, byte2, byte3, byte4};
 	
 	NSDateFormatter *timeFormatter = [[NSDateFormatter alloc]init];
 	timeFormatter.dateFormat = @"HH:mm:ss";
@@ -157,8 +130,9 @@ typedef enum{
 	
 	NSString *timeString = [timeFormatter stringFromDate: localDate];
 	
-	[self sendTx:[@"TI:" stringByAppendingString: timeString]];
-	//[self sendTx:[@"DA+" stringByAppendingString: dateString]];
+	
+	[self.shield sendBytes:message];
+	
 
 }
 
