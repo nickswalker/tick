@@ -523,8 +523,11 @@
                       p: self.activePeripheral
                    data:data];
 }
-- (void)sendBytes:(const void *)message {
-    NSData *data = [NSData dataWithBytes:message length:sizeof(message)];
+- (void)sendBytes:(unsigned char *)message size:(size_t)size {
+	for(int i = 0; i < size ; i++){
+		NSLog(@"%d: %hhd", i, message[i]);
+	}
+    NSData *data = [NSData dataWithBytes:message length:size];
     [self writeValue:[CBUUID UUIDWithString:BS_SERIAL_SERVICE_UUID]
      characteristicUUID:[CBUUID UUIDWithString:BS_SERIAL_TX_UUID]
                       p: self.activePeripheral

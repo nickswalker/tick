@@ -47,6 +47,6 @@ typedef void (^BSSuccessBlock)(id response, NSError *error);
 - (void)didPowerOnBlock:(BSSuccessBlock)block;
 - (void)didDiscoverCharacteristicsBlock:(BSSuccessBlock)block;
 
-- (void)sendBytes:(const void *)bytes;
+- (void)sendBytes:(unsigned char *)bytes size:(size_t)size;
 - (void)sendText:(NSString*)string;
 @end

@@ -88,12 +88,12 @@ typedef enum{
     });
 }
 - (IBAction)sliderValueChanged:(UISlider *)sender {
-	int r = (char)self.rSlider.value;
-	int g = (char)self.gSlider.value;
-	int b = (char)self.bSlider.value;
-	const char message[] = {SETLIGHTCOLOR, r, g, b};
+	unsigned char r = (char)self.rSlider.value;
+	unsigned char g = (char)self.gSlider.value;
+	unsigned char b = (char)self.bSlider.value;
+	unsigned char message[] = {SETLIGHTCOLOR, r, g, b};
 	
-	[self.shield sendBytes:message];
+	[self.shield sendBytes:message size:sizeof(message)];
 }
 - (IBAction)refresh:(id)sender{
 	[self syncCurrentDateAndTime];
@@ -109,30 +109,16 @@ typedef enum{
 }
 
 - (void)syncCurrentDateAndTime
-{
-	NSDate *localDate = [NSDate date];
-	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-	dateFormatter.dateFormat = @"s";
-	
-	NSString *dateString = [dateFormatter stringFromDate: localDate];
+{	
 	time_t time_t = [[NSDate date] timeIntervalSince1970];
-	NSLog(@"@%ld", time_t);
-	char byte1 = (time_t >> 24) & 0xFF;
-	char byte2 = (time_t >> 16) & 0xFF;
-	char byte3 = (time_t >> 8) & 0xFF;
-	char byte4 = (time_t >> 0) & 0xFF;
+
+	unsigned char byte1 = (time_t >> 0);
+	unsigned char byte2 = (time_t >> 8);
+	unsigned char byte3 = (time_t >> 16);
+	unsigned char byte4 = (time_t >> 24);
 	
-	const char message[]  = {SETTIME, byte1, byte2, byte3, byte4};
-	
-	NSDateFormatter *timeFormatter = [[NSDateFormatter alloc]init];
-	timeFormatter.dateFormat = @"HH:mm:ss";
-	
-	
-	NSString *timeString = [timeFormatter stringFromDate: localDate];
-	
-	
-	[self.shield sendBytes:message];
-	
+	unsigned char message[]  = {SETTIME, byte1, byte2, byte3, byte4};
+	[self.shield sendBytes:message size:sizeof(message)];
 
 }
 

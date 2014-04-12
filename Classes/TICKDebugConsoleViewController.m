@@ -41,8 +41,6 @@
 	self.peripheral = peripheral;
 	self.shield = shield;
 }
-#pragma mark - custom method
-
 
 
 #pragma mark - UITextFieldDelegate
