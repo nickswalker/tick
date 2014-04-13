@@ -31,17 +31,10 @@
 	}];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (void)setShield:(BlueShield *)shield andPeripheral:(CBPeripheral *) peripheral{
 	self.peripheral = peripheral;
 	self.shield = shield;
 }
-
 
 #pragma mark - UITextFieldDelegate
 

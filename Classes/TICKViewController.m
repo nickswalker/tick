@@ -33,22 +33,14 @@ typedef enum{
     [_shield didPowerOnBlock:^(id response, NSError *error) {
         [self reloadClicked:nil];
 		
-		
     }];
-	
 	   
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)alertView:(UIAlertView *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
 	
-    if (buttonIndex == 0) {
-        [self reloadClicked:self];
+    if (buttonIndex == 1) {
+        [self reloadClicked:nil];
     } else {
         NSURL *url = [NSURL URLWithString:@"http://nickswalker.com"];
 		[[UIApplication sharedApplication] openURL:url];
@@ -87,7 +79,35 @@ typedef enum{
 
     });
 }
-- (IBAction)sliderValueChanged:(UISlider *)sender {
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+	UITableViewCell *theCellClicked = [self.tableView cellForRowAtIndexPath:indexPath];
+	if (theCellClicked == self.colorCell) {
+		self.controlsVisible = !self.controlsVisible;
+		if (!self.controlsVisible) [self sendColorToTock:nil];
+	}
+	[self.tableView beginUpdates];
+    [self.tableView endUpdates];
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+	
+    if ( ([indexPath row] == 1) && ([indexPath section] == 0) && !self.controlsVisible ) {
+        return 0;
+    }
+   
+	
+	return [super tableView:tableView heightForRowAtIndexPath:indexPath];;
+	
+}
+
+- (IBAction)updateColorCell:(UISlider *)sender {
+	float r = self.rSlider.value/255;
+	float g = self.gSlider.value/255;
+	float b = self.bSlider.value/255;
+
+	[self.colorCell setBackgroundColor:[UIColor colorWithRed:r green:g blue:b alpha:1]];
+}
+- (IBAction)sendColorToTock:(UISlider *)sender {
 	unsigned char r = (char)self.rSlider.value;
 	unsigned char g = (char)self.gSlider.value;
 	unsigned char b = (char)self.bSlider.value;
@@ -109,8 +129,12 @@ typedef enum{
 }
 
 - (void)syncCurrentDateAndTime
-{	
+{
+	//In GMT
 	time_t time_t = [[NSDate date] timeIntervalSince1970];
+	
+	//Now in iPhone-local time zone/DST
+	time_t += [[NSTimeZone systemTimeZone] secondsFromGMT];
 
 	unsigned char byte1 = (time_t >> 0);
 	unsigned char byte2 = (time_t >> 8);

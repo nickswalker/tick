@@ -8,12 +8,16 @@
 @property (nonatomic, strong) BlueShield *shield;
 @property (nonatomic, strong) CBPeripheral *peripheral;
 
-@property IBOutlet UIButton *refresh;
+@property IBOutlet UITableViewCell *controlsCell;
+@property BOOL controlsVisible;
 @property IBOutlet UISlider *rSlider;
 @property IBOutlet UISlider *gSlider;
 @property IBOutlet UISlider *bSlider;
+@property IBOutlet UITableViewCell *colorCell;
 
-- (IBAction)sliderValueChanged:(UISlider *)sender;
+
+- (IBAction)updateColorCell:(UISlider *)sender;
+- (IBAction)sendColorToTock:(UISlider *)sender;
 - (IBAction)refresh:(id)sender;
 
 @end
