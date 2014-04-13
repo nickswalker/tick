@@ -16,3 +16,24 @@
 
 #define BS_SERIAL_RX_LEN                               20
 #define BS_SERIAL_TX_LEN                               20
+
+typedef enum{
+	SETDATE = 1,
+	SETTIME = 2,
+	SETLIGHTCOLOR = 3,
+	GETLIGHTCOLOR = 4,
+	SETALARM = 5,
+	GETALARM = 6,
+	SETSETTING = 7,
+	GETSETTING = 8,
+	TESTCONNECTION =255
+} Command;
+
+typedef enum {
+	DISPLAYTWENTYFOURHOURTIME,
+	BLINKCOLON,
+	LOUDERALARM,
+	AUTOBRIGHTNESS,
+	BRIGHTNESS,
+	DEBUGMODE
+} Option;

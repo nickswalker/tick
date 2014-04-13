@@ -4,17 +4,7 @@
 #import "BlueShield.h"
 #import "BSDefines.h"
 
-typedef enum{
-	SETDATE = 1,
-	SETTIME = 2,
-	SETLIGHTCOLOR = 3,
-	GETLIGHTCOLOR = 4,
-	SETALARM = 5,
-	GETALARM = 6,
-	SETSETTING = 7,
-	GETSETTING = 8,
-	TESTCONNECTION =255
-} Command;
+
 
 @interface TICKViewController ()
 

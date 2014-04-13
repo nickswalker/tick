@@ -10,24 +10,50 @@
 
 @implementation TICKDisplayOptionsViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+	if (self.autoBrightness.isOn)
+		self.brightness.enabled = true;
 }
 
 - (void)setShield:(BlueShield *)shield andPeripheral:(CBPeripheral *) peripheral{
 	self.peripheral = peripheral;
 	self.shield = shield;
+}
+
+-(IBAction)settingChanged:(UISwitch*)sender{
+	if (sender == [self displayTwentyFourHourTime])
+		[self sendSetting:DISPLAYTWENTYFOURHOURTIME value:(char)[sender isOn]];
+	if (sender == [self blinkColon])
+		[self sendSetting:BLINKCOLON value:(char)sender.isOn];
+	if (sender == [self louderAlarm])
+		[self sendSetting:LOUDERALARM value:(char)sender.isOn];
+	if (sender == [self debugMode])
+		[self sendSetting:DEBUGMODE value:(char)sender.isOn];
+	if (sender == [self autoBrightness]){
+		[self sendSetting:AUTOBRIGHTNESS value:(char)sender.isOn];
+		self.brightness.enabled = !sender.isOn;
+	}
+	
+}
+
+-(IBAction)sliderSettingChanged:(UISlider*)sender{
+	if (sender == [self brightness])
+		[self sendSetting:BRIGHTNESS value:(char)[sender value]];
+	
+	
+}
+
+-(void)sendSetting:(Option)option value:(unsigned char)value{
+	unsigned char byte1 = value;
+	unsigned char message[] = {SETSETTING, option, byte1};
+	[self.shield sendBytes:message size:sizeof(message)];
+}
+
+-(void)retrieveSetting:(Option)option value:(BOOL)value{
+	
 }
 
 @end

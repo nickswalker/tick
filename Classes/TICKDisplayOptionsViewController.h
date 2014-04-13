@@ -10,4 +10,14 @@
 @property (nonatomic, strong) BlueShield *shield;
 @property (nonatomic, strong) CBPeripheral *peripheral;
 
+@property IBOutlet UISwitch *displayTwentyFourHourTime;
+@property IBOutlet UISwitch *blinkColon;
+@property IBOutlet UISwitch *louderAlarm;
+@property IBOutlet UISwitch *autoBrightness;
+@property IBOutlet UISlider *brightness;
+@property IBOutlet UISwitch *debugMode;
+
+-(IBAction)sliderSettingChanged:(UISlider*)sender;
+-(IBAction)settingChanged:(UISwitch*)sender;
+
 @end
