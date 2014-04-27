@@ -12,7 +12,8 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
-		self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+		self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+		self.tableView.separatorColor = [UIColor redColor];
     }
     return self;
 }
@@ -20,12 +21,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    UIView* color = [[UIView alloc] init];
+	color.backgroundColor = [UIColor colorWithRed:.933 green:.933 blue:.9531 alpha:1];
+	[self.tableView setBackgroundView:color];
 }
 
 - (void)didReceiveMemoryWarning
@@ -33,7 +31,19 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)editButtonPressed:(UIBarButtonItem *)sender{
+	if ([self.tableView isEditing]) {
+		// If the tableView is already in edit mode, turn it off. Also change the title of the button to reflect the intended verb (‘Edit’, in this case).
+		[self.tableView setEditing:NO animated:YES];
+		self.editButton.title = @"Edit";
+	}
+	else {
+		[self.tableView setEditing:YES animated:YES];
+		self.editButton.title = @"Done";
+	}
 
+	
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -64,16 +74,15 @@
     return cell;
 }
 
-/*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
 
-/*
+
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -84,23 +93,9 @@
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+
 
 /*
 #pragma mark - Navigation
