@@ -1,10 +1,24 @@
 #import "TICKAppDelegate.h"
+#import "TICKAlarmsViewController.h"
+#import "TICKAlarm.h"
 
 @implementation TICKAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    alarm_t test;
+	test.hour = 13;
+	test.minute = 30;
+	test.repeatSchedule = 0b01010100;
+	NSMutableArray* alarms = [[NSMutableArray alloc] init];
+	TICKAlarm* tempAlarm = [[TICKAlarm alloc] initWithBinary:test];
+	[alarms addObject:tempAlarm];
+	
+	UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+    UINavigationController *navigationController = [tabBarController viewControllers][1];
+    TICKAlarmsViewController *alarmsViewController = [navigationController viewControllers][0];
+    alarmsViewController.alarms = alarms;
+	
     return YES;
 }
 							
