@@ -12,6 +12,15 @@
 		01247C2B190C834000321DA4 /* TICKAlarmsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01247C2A190C834000321DA4 /* TICKAlarmsViewController.m */; };
 		01247C2E190C8B8200321DA4 /* TICKAlarm.m in Sources */ = {isa = PBXBuildFile; fileRef = 01247C2D190C8B8200321DA4 /* TICKAlarm.m */; };
 		01247C2F190CAEDC00321DA4 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B4729D1171A31EC00DBCCBB /* MainStoryboard_iPhone.storyboard */; };
+		01247C32190D641200321DA4 /* TICKTock.m in Sources */ = {isa = PBXBuildFile; fileRef = 01247C31190D641200321DA4 /* TICKTock.m */; };
+		01247C35190D8CC600321DA4 /* alarms@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01247C33190D8CC600321DA4 /* alarms@2x.png */; };
+		01247C36190D8CC600321DA4 /* alarms-fill@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01247C34190D8CC600321DA4 /* alarms-fill@2x.png */; };
+		01247C39190D8E8100321DA4 /* TICKTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01247C38190D8E8100321DA4 /* TICKTabBarViewController.m */; };
+		01247C3F190DB66500321DA4 /* options-fill@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01247C3B190DB66500321DA4 /* options-fill@2x.png */; };
+		01247C40190DB66500321DA4 /* options@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01247C3C190DB66500321DA4 /* options@2x.png */; };
+		01247C41190DB66500321DA4 /* color-fill@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01247C3D190DB66500321DA4 /* color-fill@2x.png */; };
+		01247C42190DB66500321DA4 /* color-outlite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01247C3E190DB66500321DA4 /* color-outlite@2x.png */; };
+		01247C45190DBCE700321DA4 /* TICKAlarmTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01247C44190DBCE700321DA4 /* TICKAlarmTableViewCell.m */; };
 		01551F1918E90D5F00174CA9 /* TICKDisplayOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01551F1818E90D5F00174CA9 /* TICKDisplayOptionsViewController.m */; };
 		01551F1C18E90E4600174CA9 /* TICKDebugConsoleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01551F1B18E90E4600174CA9 /* TICKDebugConsoleViewController.m */; };
 		1B4729C4171A31EC00DBCCBB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1B4729C2171A31EC00DBCCBB /* InfoPlist.strings */; };
@@ -26,6 +35,18 @@
 		01247C2A190C834000321DA4 /* TICKAlarmsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TICKAlarmsViewController.m; sourceTree = "<group>"; };
 		01247C2C190C8B8200321DA4 /* TICKAlarm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TICKAlarm.h; sourceTree = "<group>"; };
 		01247C2D190C8B8200321DA4 /* TICKAlarm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TICKAlarm.m; sourceTree = "<group>"; };
+		01247C30190D641200321DA4 /* TICKTock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TICKTock.h; sourceTree = "<group>"; };
+		01247C31190D641200321DA4 /* TICKTock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TICKTock.m; sourceTree = "<group>"; };
+		01247C33190D8CC600321DA4 /* alarms@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alarms@2x.png"; sourceTree = "<group>"; };
+		01247C34190D8CC600321DA4 /* alarms-fill@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alarms-fill@2x.png"; sourceTree = "<group>"; };
+		01247C37190D8E8100321DA4 /* TICKTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TICKTabBarViewController.h; sourceTree = "<group>"; };
+		01247C38190D8E8100321DA4 /* TICKTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TICKTabBarViewController.m; sourceTree = "<group>"; };
+		01247C3B190DB66500321DA4 /* options-fill@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "options-fill@2x.png"; sourceTree = "<group>"; };
+		01247C3C190DB66500321DA4 /* options@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "options@2x.png"; sourceTree = "<group>"; };
+		01247C3D190DB66500321DA4 /* color-fill@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "color-fill@2x.png"; sourceTree = "<group>"; };
+		01247C3E190DB66500321DA4 /* color-outlite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "color-outlite@2x.png"; sourceTree = "<group>"; };
+		01247C43190DBCE700321DA4 /* TICKAlarmTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TICKAlarmTableViewCell.h; sourceTree = "<group>"; };
+		01247C44190DBCE700321DA4 /* TICKAlarmTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TICKAlarmTableViewCell.m; sourceTree = "<group>"; };
 		01551F1718E90D5F00174CA9 /* TICKDisplayOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TICKDisplayOptionsViewController.h; sourceTree = "<group>"; };
 		01551F1818E90D5F00174CA9 /* TICKDisplayOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TICKDisplayOptionsViewController.m; sourceTree = "<group>"; };
 		01551F1A18E90E4600174CA9 /* TICKDebugConsoleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TICKDebugConsoleViewController.h; sourceTree = "<group>"; };
@@ -56,11 +77,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01247C3A190D93C300321DA4 /* Alarms */ = {
+			isa = PBXGroup;
+			children = (
+				01247C2C190C8B8200321DA4 /* TICKAlarm.h */,
+				01247C2D190C8B8200321DA4 /* TICKAlarm.m */,
+				01247C29190C834000321DA4 /* TICKAlarmsViewController.h */,
+				01247C2A190C834000321DA4 /* TICKAlarmsViewController.m */,
+				01247C43190DBCE700321DA4 /* TICKAlarmTableViewCell.h */,
+				01247C44190DBCE700321DA4 /* TICKAlarmTableViewCell.m */,
+			);
+			name = Alarms;
+			sourceTree = "<group>";
+		};
+		01247C46190DC13C00321DA4 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				01039F5918D566910023F2B9 /* Images.xcassets */,
+				01247C3B190DB66500321DA4 /* options-fill@2x.png */,
+				01247C3C190DB66500321DA4 /* options@2x.png */,
+				01247C3D190DB66500321DA4 /* color-fill@2x.png */,
+				01247C3E190DB66500321DA4 /* color-outlite@2x.png */,
+				01247C33190D8CC600321DA4 /* alarms@2x.png */,
+				01247C34190D8CC600321DA4 /* alarms-fill@2x.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		1B4729AD171A31EB00DBCCBB = {
 			isa = PBXGroup;
 			children = (
 				1B4729D1171A31EC00DBCCBB /* MainStoryboard_iPhone.storyboard */,
-				01039F5918D566910023F2B9 /* Images.xcassets */,
 				1B4729C0171A31EC00DBCCBB /* Supporting Files */,
 				1BF02B94171ADBCC0006A153 /* Library */,
 				1B4729BF171A31EC00DBCCBB /* Classes */,
@@ -79,18 +126,17 @@
 		1B4729BF171A31EC00DBCCBB /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				01247C2C190C8B8200321DA4 /* TICKAlarm.h */,
-				01247C2D190C8B8200321DA4 /* TICKAlarm.m */,
-				01247C29190C834000321DA4 /* TICKAlarmsViewController.h */,
-				01247C2A190C834000321DA4 /* TICKAlarmsViewController.m */,
+				01247C3A190D93C300321DA4 /* Alarms */,
 				1B4729C8171A31EC00DBCCBB /* TICKAppDelegate.h */,
 				1B4729C9171A31EC00DBCCBB /* TICKAppDelegate.m */,
+				1BF02B99171ADC790006A153 /* TICKColorViewController.h */,
+				1BF02B9A171ADC790006A153 /* TICKColorViewController.m */,
 				01551F1A18E90E4600174CA9 /* TICKDebugConsoleViewController.h */,
 				01551F1B18E90E4600174CA9 /* TICKDebugConsoleViewController.m */,
 				01551F1718E90D5F00174CA9 /* TICKDisplayOptionsViewController.h */,
 				01551F1818E90D5F00174CA9 /* TICKDisplayOptionsViewController.m */,
-				1BF02B99171ADC790006A153 /* TICKColorViewController.h */,
-				1BF02B9A171ADC790006A153 /* TICKColorViewController.m */,
+				01247C37190D8E8100321DA4 /* TICKTabBarViewController.h */,
+				01247C38190D8E8100321DA4 /* TICKTabBarViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -98,6 +144,7 @@
 		1B4729C0171A31EC00DBCCBB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				01247C46190DC13C00321DA4 /* Images */,
 				1B4729C1171A31EC00DBCCBB /* Clock-Info.plist */,
 				1B4729C2171A31EC00DBCCBB /* InfoPlist.strings */,
 				1B4729C5171A31EC00DBCCBB /* main.m */,
@@ -112,6 +159,8 @@
 			children = (
 				1B4729E0171A325400DBCCBB /* BlueShield.h */,
 				1B4729E1171A325400DBCCBB /* BlueShield.m */,
+				01247C30190D641200321DA4 /* TICKTock.h */,
+				01247C31190D641200321DA4 /* TICKTock.m */,
 				1B4729E5171A365200DBCCBB /* BSDefines.h */,
 			);
 			name = BlueShield;
@@ -178,8 +227,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01247C42190DB66500321DA4 /* color-outlite@2x.png in Resources */,
+				01247C36190D8CC600321DA4 /* alarms-fill@2x.png in Resources */,
+				01247C3F190DB66500321DA4 /* options-fill@2x.png in Resources */,
+				01247C40190DB66500321DA4 /* options@2x.png in Resources */,
 				01247C2F190CAEDC00321DA4 /* MainStoryboard_iPhone.storyboard in Resources */,
+				01247C41190DB66500321DA4 /* color-fill@2x.png in Resources */,
 				1B4729C4171A31EC00DBCCBB /* InfoPlist.strings in Resources */,
+				01247C35190D8CC600321DA4 /* alarms@2x.png in Resources */,
 				01039F5A18D566910023F2B9 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -193,10 +248,13 @@
 			files = (
 				010C813218E902BD007C8353 /* TICKColorViewController.m in Sources */,
 				1B4729C6171A31EC00DBCCBB /* main.m in Sources */,
+				01247C32190D641200321DA4 /* TICKTock.m in Sources */,
+				01247C45190DBCE700321DA4 /* TICKAlarmTableViewCell.m in Sources */,
 				1B4729CA171A31EC00DBCCBB /* TICKAppDelegate.m in Sources */,
 				01247C2B190C834000321DA4 /* TICKAlarmsViewController.m in Sources */,
 				01551F1918E90D5F00174CA9 /* TICKDisplayOptionsViewController.m in Sources */,
 				1B4729E2171A325400DBCCBB /* BlueShield.m in Sources */,
+				01247C39190D8E8100321DA4 /* TICKTabBarViewController.m in Sources */,
 				01247C2E190C8B8200321DA4 /* TICKAlarm.m in Sources */,
 				01551F1C18E90E4600174CA9 /* TICKDebugConsoleViewController.m in Sources */,
 			);
