@@ -493,6 +493,7 @@
     [self.activePeripheral discoverServices:nil];
 }
 
+
 #pragma mark - CBPeripheralDelegate
 
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverServices:(NSError *)error {
@@ -516,7 +517,7 @@
 }
 
 - (void)sendText:(NSString*)string {
-	NSLog(string);
+
     NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
     [self writeValue:[CBUUID UUIDWithString:BS_SERIAL_SERVICE_UUID]
      characteristicUUID:[CBUUID UUIDWithString:BS_SERIAL_TX_UUID]

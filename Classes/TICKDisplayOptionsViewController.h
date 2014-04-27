@@ -1,13 +1,12 @@
 #import <UIKit/UIKit.h>
 #import <CoreBluetooth/CoreBluetooth.h>
-#import "BlueShield.h"
 #import "BSDefines.h"
 
-@class BlueShield;
+@class TICKTock;
 
 @interface TICKDisplayOptionsViewController : UITableViewController
 
-@property (nonatomic, strong) BlueShield *shield;
+@property (nonatomic, strong) TICKTock *tock;
 @property (nonatomic, strong) CBPeripheral *peripheral;
 
 @property IBOutlet UISwitch *displayTwentyFourHourTime;

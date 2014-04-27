@@ -1,6 +1,6 @@
 #import "TICKDisplayOptionsViewController.h"
 #import <CoreBluetooth/CoreBluetooth.h>
-#import "BlueShield.h"
+#import "TICKTock.h"
 #import "BSDefines.h"
 
 
@@ -18,10 +18,6 @@
 		self.brightness.enabled = true;
 }
 
-- (void)setShield:(BlueShield *)shield andPeripheral:(CBPeripheral *) peripheral{
-	self.peripheral = peripheral;
-	self.shield = shield;
-}
 
 -(IBAction)settingChanged:(UISwitch*)sender{
 	if (sender == [self displayTwentyFourHourTime])
@@ -45,11 +41,13 @@
 	
 	
 }
-
+- (IBAction)reloadClicked:(id)sender {
+ 
+}
 -(void)sendSetting:(Option)option value:(unsigned char)value{
 	unsigned char byte1 = value;
 	unsigned char message[] = {SETSETTING, option, byte1};
-	[self.shield sendBytes:message size:sizeof(message)];
+	[self.tock sendBytes:message size:sizeof(message)];
 }
 
 -(void)retrieveSetting:(Option)option value:(BOOL)value{

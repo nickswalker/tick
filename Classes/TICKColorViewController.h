@@ -1,23 +1,17 @@
 #import <UIKit/UIKit.h>
-#import <CoreBluetooth/CoreBluetooth.h>
 
-@class BlueShield;
+@class TICKTock;
 
 @interface TICKColorViewController : UIViewController <UIAlertViewDelegate>
 
-@property (nonatomic, strong) BlueShield *shield;
-@property (nonatomic, strong) CBPeripheral *peripheral;
+@property (nonatomic, strong) TICKTock *tock;
 
-@property IBOutlet UITableViewCell *controlsCell;
-@property BOOL controlsVisible;
 @property IBOutlet UISlider *rSlider;
 @property IBOutlet UISlider *gSlider;
 @property IBOutlet UISlider *bSlider;
-@property IBOutlet UITableViewCell *colorCell;
+@property IBOutlet UIView *colorPreview;
 
-
-- (IBAction)updateColorCell:(UISlider *)sender;
+- (IBAction)updateColorPreview:(UISlider *)sender;
 - (IBAction)sendColorToTock:(UISlider *)sender;
-- (IBAction)refresh:(id)sender;
 
 @end
