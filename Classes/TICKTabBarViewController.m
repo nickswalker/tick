@@ -18,6 +18,18 @@
 	[[[self viewControllers][0] viewControllers][0] setTock:self.tock];
 	[[[self viewControllers][2] viewControllers][0] setTock:self.tock];
 	[[[self viewControllers][1] viewControllers][0] setTock:self.tock];
+	UITabBarItem *tabBarItem = [self.tabBar.items objectAtIndex:0];
+	UIImage* selectedImage = [[UIImage imageNamed:@"color-fill"] imageWithRenderingMode:UIImageRenderingModeAutomatic];
+	tabBarItem.selectedImage = selectedImage;
+	
+	tabBarItem = [self.tabBar.items objectAtIndex:1];
+	selectedImage = [[UIImage imageNamed:@"alarms-fill"] imageWithRenderingMode:UIImageRenderingModeAutomatic];
+	tabBarItem.selectedImage = selectedImage;
+	
+	tabBarItem = [self.tabBar.items objectAtIndex:2];
+	selectedImage = [[UIImage imageNamed:@"options-fill"] imageWithRenderingMode:UIImageRenderingModeAutomatic];
+	tabBarItem.selectedImage = selectedImage;
+	
 }
 
 - (void)didReceiveMemoryWarning
