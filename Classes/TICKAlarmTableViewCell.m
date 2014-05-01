@@ -1,24 +1,16 @@
-//
-//  TICKAlarmTableViewCell.m
-//  Tick
-//
-//  Created by Nick Walker on 4/27/14.
-//  Copyright (c) 2014 Linlinqi. All rights reserved.
-//
-
 #import "TICKAlarmTableViewCell.h"
+#import "TICKAlarm.h"
 
 @implementation TICKAlarmTableViewCell
+@synthesize alarm = _alarm;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        // Initialization code
     }
     return self;
 }
-
 - (void)awakeFromNib
 {
     // Initialization code
@@ -41,6 +33,38 @@
 		
 	}];
 	}
+}
+
+- (IBAction)toggledActivation:(UISwitch*)sender{
+
+	if (sender.on) {
+		[UIView animateWithDuration:.35 delay:0.f options:UIViewAnimationOptionCurveEaseIn animations:^{
+			[self setBackgroundColor: [UIColor whiteColor]];
+			self.timeLabel.textColor = [UIColor blackColor];
+		} completion:^(BOOL finished) {
+			
+		}];
+	}
+	else{
+	[UIView animateWithDuration:.35 delay:0.f options:UIViewAnimationOptionCurveEaseIn animations:^{
+		[self setBackgroundColor: [UIColor colorWithRed:.933 green:.933 blue:.9531 alpha:1]];
+		self.timeLabel.textColor = [UIColor colorWithRed:.556 green:.556 blue:.576 alpha:1];
+	} completion:^(BOOL finished) {
+		
+	}];
+	}
+}
+- (void) setAlarm:(TICKAlarm *)alarm{
+	_alarm = alarm;
+	self.timeLabel.text =  [NSString stringWithFormat:@"%d:%d", alarm.hour, alarm.minute ];
+	self.repeatScheduleLabel.text = [alarm getStringRepresentationOfRepeatSchedule];
+	
+}
+- (TICKAlarm*) alarm{
+	return _alarm;
+}
+- (void) alarmDetailWasDismissed:(TICKAlarm *)alarm{
+	
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {

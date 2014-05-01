@@ -1,11 +1,3 @@
-//
-//  TICKAlarm.m
-//  Tick
-//
-//  Created by Nick Walker on 4/26/14.
-//  Copyright (c) 2014 Linlinqi. All rights reserved.
-//
-
 #import "TICKAlarm.h"
 
 @implementation TICKAlarm
@@ -26,17 +18,36 @@
 }
 
 - (NSString*) getStringRepresentationOfRepeatSchedule{
-	return @"yo dawg";
+	NSString* temp = @"";
+	bool rs[7];
+	for (int i = 0; i<7; i++) {
+		if ([self.repeatSchedule[i] isEqual:@1]) rs[i] = true;
+		else rs[i] = false;
+	}
+	
+	if(rs[0])temp =[temp stringByAppendingString:@"Sun "];
+	if(rs[1]) temp =[temp stringByAppendingString:@"Mon "];
+	if(rs[2]) temp =[temp stringByAppendingString:@"Tues "];
+	if(rs[3]) temp =[temp stringByAppendingString:@"Wed "];
+	if(rs[4]) temp =[temp stringByAppendingString:@"Thurs "];
+	if(rs[5]) temp =[temp stringByAppendingString:@"Fri "];
+	if(rs[6]) temp =[temp stringByAppendingString:@"Sat "];
+	
+	if(rs[0] && rs[6] && !(rs[1] || rs[2] || rs[3] || rs [4] || rs[5])) temp = @"Weekends";
+	if((rs[1] && rs[2] && rs[3] && rs [4] && rs[5]) && !(rs[0] || rs[6]) ) temp = @"Weekdays";
+	if(rs[1] && rs[2] && rs[3] && rs [4] && rs[5] && rs[0] && rs[6] ) temp = @"Every day";
+	return temp;
 }
 
 - (NSArray*) repeatSchedule{
-	NSArray* tempArray;
+	NSArray* tempArray = [[NSArray alloc] init];
 	NSNumber* tempBool;
 	for(int i =0; i<7; i++){
 		int placesToShift =7-i;
-		tempBool =  [NSNumber numberWithInt:((self.binaryRepresentation.repeatSchedule >> placesToShift) & 0b11111111)];
+		tempBool =  [NSNumber numberWithBool:((self.binaryRepresentation.repeatSchedule >> placesToShift) & 0b00000001)];
 		tempArray = [tempArray arrayByAddingObject:tempBool];
 	}
+	NSLog(@"%@",tempArray);
 	return tempArray;
 }
 - (void) setRepeatSchedule:(NSArray *)repeatSchedule{
@@ -49,6 +60,12 @@
 		int placesToShift =7-i;
 		tempRepeatSchedule ^= ( 1 << placesToShift);
 	}
+	alarm_t tempAlarm;
+	tempAlarm.repeatSchedule = tempRepeatSchedule;
+	tempAlarm.hour = self.binaryRepresentation.hour;
+	tempAlarm.minute = self.binaryRepresentation.minute;
+	self.binaryRepresentation= tempAlarm;
+	
 	_repeatSchedule = repeatSchedule;
 }
 

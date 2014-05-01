@@ -1,14 +1,19 @@
 #import <UIKit/UIKit.h>
 #import "TICKTock.h"
+#import "TICKAlarmDetailTableViewController.h"
 
 @class TICKTock;
 
-@interface TICKAlarmsViewController : UITableViewController
+@interface TICKAlarmsTableViewController : UITableViewController
 
 @property TICKTock* tock;
-@property NSMutableArray *alarms;
+@property NSArray *alarms;
 @property IBOutlet UIBarButtonItem* editButton;
 
+
 - (IBAction)editButtonPressed:(UIBarButtonItem*)sender;
+
+
+
 
 @end
