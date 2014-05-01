@@ -13,7 +13,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+	UIView* color = [[UIView alloc] init];
+	color.backgroundColor = [UIColor colorWithRed:.933 green:.933 blue:.9531 alpha:1];
+	[self.tableView setBackgroundView:color];
 	if (self.autoBrightness.isOn)
 		self.brightness.enabled = true;
 }

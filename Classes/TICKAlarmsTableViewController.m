@@ -70,7 +70,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TICKAlarmTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Alarm" forIndexPath:indexPath];
-    cell.alarm = self.alarms[1];
+    cell.alarm = self.alarms[indexPath.row];
     
     return cell;
 }

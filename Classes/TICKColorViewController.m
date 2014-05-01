@@ -35,9 +35,6 @@
 	
 	[self.tock sendBytes:message size:sizeof(message)];
 }
-- (IBAction)refresh:(id)sender{
-	[self.tock syncCurrentDateAndTime];
-}
 
 
 @end

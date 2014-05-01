@@ -43,7 +43,7 @@
 	NSArray* tempArray = [[NSArray alloc] init];
 	NSNumber* tempBool;
 	for(int i =0; i<7; i++){
-		int placesToShift =7-i;
+		int placesToShift =6-i;
 		tempBool =  [NSNumber numberWithBool:((self.binaryRepresentation.repeatSchedule >> placesToShift) & 0b00000001)];
 		tempArray = [tempArray arrayByAddingObject:tempBool];
 	}

@@ -5,6 +5,7 @@
 -(id) init{
 	self = [super init];
 	[super controlSetup];
+	
 	return self;
 }
 - (void)attachToTock{
@@ -33,6 +34,7 @@
 			self.activePeripheral = [self.peripherals objectAtIndex:0];
 			
 			[self connectPeripheral:self.activePeripheral];
+			[self syncCurrentDateAndTime];
 	
 		}
 	});

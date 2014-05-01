@@ -17,7 +17,7 @@
 #define BS_SERIAL_RX_LEN                               20
 #define BS_SERIAL_TX_LEN                               20
 
-typedef enum{
+typedef enum {
 	SETDATE = 1,
 	SETTIME = 2,
 	SETLIGHTCOLOR = 3,
@@ -26,6 +26,7 @@ typedef enum{
 	GETALARM = 6,
 	SETSETTING = 7,
 	GETSETTING = 8,
+	RESET = 254,
 	TESTCONNECTION =255
 } Command;
 

@@ -1,5 +1,5 @@
 #import "TICKAppDelegate.h"
-#import "TICKAlarmsViewController.h"
+#import "TICKAlarmsTableViewController.h"
 #import "TICKAlarm.h"
 
 @implementation TICKAppDelegate
@@ -8,17 +8,30 @@
 {
 	
     alarm_t test;
-	test.hour = 13;
+	test.hour = 15;
 	test.minute = 30;
-	test.repeatSchedule = 0b01010100;
+	test.repeatSchedule = 0b10011110;
 	NSMutableArray* alarms = [[NSMutableArray alloc] init];
 	TICKAlarm* tempAlarm = [[TICKAlarm alloc] initWithBinary:test];
 	[alarms addObject:tempAlarm];
+	
+	
+	test.repeatSchedule = 0b10111110;
+	tempAlarm = [[TICKAlarm alloc] initWithBinary:test];
 	[alarms addObject:tempAlarm];
+	
+	test.repeatSchedule = 0b11111111;
+	tempAlarm = [[TICKAlarm alloc] initWithBinary:test];
+	[alarms addObject:tempAlarm];
+	
+	test.repeatSchedule = 0b10110111;
+	tempAlarm = [[TICKAlarm alloc] initWithBinary:test];
+	[alarms addObject:tempAlarm];
+	
 	
 	UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
     UINavigationController *navigationController = [tabBarController viewControllers][1];
-    TICKAlarmsViewController *alarmsViewController = [navigationController viewControllers][0];
+    TICKAlarmsTableViewController *alarmsViewController = [navigationController viewControllers][0];
     alarmsViewController.alarms = alarms;
 	
     return YES;
