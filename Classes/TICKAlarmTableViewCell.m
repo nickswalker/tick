@@ -53,7 +53,7 @@
 }
 - (void) setAlarm:(TICKAlarm *)alarm{
 	_alarm = alarm;
-	self.timeLabel.text =  [NSString stringWithFormat:@"%d:%d", alarm.hour, alarm.minute ];
+	self.timeLabel.text =  [NSString stringWithFormat:@"%02d:%02d", alarm.hour, alarm.minute ];
 	self.repeatScheduleLabel.text = [alarm getStringRepresentationOfRepeatSchedule];
 	
 }
