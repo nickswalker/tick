@@ -1,5 +1,6 @@
 #import "TICKAlarmDetailTableViewController.h"
 #import "TICKAlarm.h"
+#import "TICKRepeatDetailTableViewController.h"
 
 @interface TICKAlarmDetailTableViewController ()
 
@@ -31,6 +32,11 @@
 	detail.text= self.alarm.getStringRepresentationOfRepeatSchedule;
 }
 
+-(void) viewWillAppear:(BOOL)animated{
+	UILabel* detail = self.repeatSchedule.contentView.subviews[1];
+	detail.text= self.alarm.getStringRepresentationOfRepeatSchedule;
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -40,16 +46,28 @@
 - (IBAction)cancel:(id)sender{
 	[self dismissViewControllerAnimated:YES completion:nil];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (IBAction)save:(id)sender{
+	[self.delegate alarmDetailWasDismissed:self.alarm];
+	[self dismissViewControllerAnimated:YES completion:nil];
+}
+- (IBAction)dateChanged:(UIDatePicker*)sender{
+	NSDate *date = [sender date];
+	NSCalendar *calendar = [NSCalendar currentCalendar];
+	NSDateComponents *components = [calendar components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:date];
+	self.alarm.hour = [components hour];
+	self.alarm.minute = [components minute];
+}
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+	TICKRepeatDetailTableViewController* destinationViewController = (TICKRepeatDetailTableViewController*)[segue destinationViewController];
+
+	if([[segue identifier] isEqualToString:@"EditRepeat"]){
+		destinationViewController.alarm= self.alarm;
+		
+	}
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
 
 @end

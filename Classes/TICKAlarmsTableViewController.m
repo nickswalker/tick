@@ -34,6 +34,20 @@
 	[self.tock syncCurrentDateAndTime];
 	
 }
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self setEditing:false animated:false];
+}
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    [super setEditing:editing animated:animated];
+	if (editing) {
+		self.editButton.title = @"Done";
+	}
+	else {
+		self.editButton.title = @"Edit";
+	}
+	
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -41,24 +55,29 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)editButtonPressed:(UIBarButtonItem *)sender{
-	if ([self.tableView isEditing]) {
-		// If the tableView is already in edit mode, turn it off. Also change the title of the button to reflect the intended verb (‘Edit’, in this case).
-		[self.tableView setEditing:NO animated:YES];
-		self.editButton.title = @"Edit";
+	if (self.isEditing) {
+		[self setEditing:NO animated:YES];
 	}
 	else {
-		[self.tableView setEditing:YES animated:YES];
-		self.editButton.title = @"Done";
+		[self setEditing:YES animated:YES];
 	}
 	unsigned char message[2] = {GETALARM,1};
 	[self.tock sendBytes:message size:2];
 	
 }
 #pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+- (void)alarmDetailWasDismissed:(TICKAlarm *)alarm{
+	
+	NSMutableArray* temp = [self.alarms mutableCopy];
+	[temp addObject: alarm];
+	self.alarms = temp;
+	[self.tableView reloadData];
+	
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 1;
+    //Change the selected background view of the cell.
+	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -75,13 +94,6 @@
     return cell;
 }
 
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-
 
 
 // Override to support editing the table view.
@@ -89,15 +101,18 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
+		NSMutableArray* temp = [self.alarms mutableCopy];
+		[temp removeObjectAtIndex:indexPath.row];
+		self.alarms = temp;
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+		
+    }
 }
 
 
 - (NSArray*) alarms{
 	return _alarms;
+
 }
 
 - (void) setAlarms:(NSArray *)alarms{
@@ -111,19 +126,22 @@
 {
 	UINavigationController* navigationController = (UINavigationController*)[segue destinationViewController];
 	TICKAlarmDetailTableViewController* destinationViewController = (TICKAlarmDetailTableViewController*)[navigationController visibleViewController];
-	destinationViewController.delegate = sender;
+	
 	if( [[segue identifier] isEqualToString:@"AddAlarm"]){
-
+		destinationViewController.delegate = self;
+		destinationViewController.alarm = [[TICKAlarm alloc] init];
+		
+		destinationViewController.title = @"Add Alarm";
 		
 	}
 	else if([[segue identifier] isEqualToString:@"EditAlarm"]){
+		destinationViewController.delegate = sender;
+		destinationViewController.title = @"Edit Alarm";
 		destinationViewController.alarm= sender.alarm;
 		NSLog(@"%@", sender);
 		NSLog(@"%@", sender.alarm);
 	
 	}
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
 }
 
 

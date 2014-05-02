@@ -27,7 +27,7 @@ typedef enum {
 
 @interface TICKAlarm : NSObject
 
-@property alarm_t binaryRepresentation;
+@property (readonly) alarm_t binaryRepresentation;
 @property uint8_t minute;
 @property uint8_t hour;
 @property BOOL isActivated;

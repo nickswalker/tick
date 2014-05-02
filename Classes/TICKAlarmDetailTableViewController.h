@@ -1,4 +1,5 @@
 #import <UIKit/UIKit.h>
+#import "TICKRepeatDetailTableViewController.h"
 
 @class TICKAlarm;
 
@@ -14,5 +15,7 @@
 @property IBOutlet UITableViewCell* repeatSchedule;
 
 - (IBAction)cancel:(id)sender;
+- (IBAction)save:(id)sender;
+- (IBAction)dateChanged:(id)sender;
 
 @end

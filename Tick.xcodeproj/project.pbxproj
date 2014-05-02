@@ -23,6 +23,7 @@
 		01247C45190DBCE700321DA4 /* TICKAlarmTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01247C44190DBCE700321DA4 /* TICKAlarmTableViewCell.m */; };
 		01551F1918E90D5F00174CA9 /* TICKDisplayOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01551F1818E90D5F00174CA9 /* TICKDisplayOptionsViewController.m */; };
 		01551F1C18E90E4600174CA9 /* TICKDebugConsoleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01551F1B18E90E4600174CA9 /* TICKDebugConsoleViewController.m */; };
+		01599489191334510032C96B /* TICKRepeatDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01599488191334510032C96B /* TICKRepeatDetailTableViewController.m */; };
 		01AD705F1911CEC0001AD8C9 /* TICKAlarmDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01AD705E1911CEC0001AD8C9 /* TICKAlarmDetailTableViewController.m */; };
 		1B4729C4171A31EC00DBCCBB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1B4729C2171A31EC00DBCCBB /* InfoPlist.strings */; };
 		1B4729C6171A31EC00DBCCBB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B4729C5171A31EC00DBCCBB /* main.m */; };
@@ -52,6 +53,8 @@
 		01551F1818E90D5F00174CA9 /* TICKDisplayOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TICKDisplayOptionsViewController.m; sourceTree = "<group>"; };
 		01551F1A18E90E4600174CA9 /* TICKDebugConsoleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TICKDebugConsoleViewController.h; sourceTree = "<group>"; };
 		01551F1B18E90E4600174CA9 /* TICKDebugConsoleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TICKDebugConsoleViewController.m; sourceTree = "<group>"; };
+		01599487191334510032C96B /* TICKRepeatDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TICKRepeatDetailTableViewController.h; sourceTree = "<group>"; };
+		01599488191334510032C96B /* TICKRepeatDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TICKRepeatDetailTableViewController.m; sourceTree = "<group>"; };
 		01AD705D1911CEC0001AD8C9 /* TICKAlarmDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TICKAlarmDetailTableViewController.h; sourceTree = "<group>"; };
 		01AD705E1911CEC0001AD8C9 /* TICKAlarmDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TICKAlarmDetailTableViewController.m; sourceTree = "<group>"; };
 		1B4729B6171A31EB00DBCCBB /* Tick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tick.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,6 +86,8 @@
 		01247C3A190D93C300321DA4 /* Alarms */ = {
 			isa = PBXGroup;
 			children = (
+				01599487191334510032C96B /* TICKRepeatDetailTableViewController.h */,
+				01599488191334510032C96B /* TICKRepeatDetailTableViewController.m */,
 				01247C2C190C8B8200321DA4 /* TICKAlarm.h */,
 				01247C2D190C8B8200321DA4 /* TICKAlarm.m */,
 				01AD705D1911CEC0001AD8C9 /* TICKAlarmDetailTableViewController.h */,
@@ -260,6 +265,7 @@
 				01AD705F1911CEC0001AD8C9 /* TICKAlarmDetailTableViewController.m in Sources */,
 				01551F1918E90D5F00174CA9 /* TICKDisplayOptionsViewController.m in Sources */,
 				1B4729E2171A325400DBCCBB /* BlueShield.m in Sources */,
+				01599489191334510032C96B /* TICKRepeatDetailTableViewController.m in Sources */,
 				01247C39190D8E8100321DA4 /* TICKTabBarViewController.m in Sources */,
 				01247C2E190C8B8200321DA4 /* TICKAlarm.m in Sources */,
 				01551F1C18E90E4600174CA9 /* TICKDebugConsoleViewController.m in Sources */,

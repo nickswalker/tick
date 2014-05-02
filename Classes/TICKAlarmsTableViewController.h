@@ -4,13 +4,13 @@
 
 @class TICKTock;
 
-@interface TICKAlarmsTableViewController : UITableViewController
+@interface TICKAlarmsTableViewController : UITableViewController <AlarmCreation>
 
 @property TICKTock* tock;
 @property NSArray *alarms;
 @property IBOutlet UIBarButtonItem* editButton;
 
-
+- (void)alarmDetailWasDismissed:(TICKAlarm *)alarm;
 - (IBAction)editButtonPressed:(UIBarButtonItem*)sender;
 
 

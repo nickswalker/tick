@@ -11,10 +11,7 @@
     }
     return self;
 }
-- (void)awakeFromNib
-{
-    // Initialization code
-}
+
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated{
 	[super setEditing:editing animated:animated];
 	if (editing) {
@@ -64,7 +61,7 @@
 	return _alarm;
 }
 - (void) alarmDetailWasDismissed:(TICKAlarm *)alarm{
-	
+	self.alarm = alarm;
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {

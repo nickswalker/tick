@@ -1,20 +1,51 @@
 #import "TICKAlarm.h"
 
-@implementation TICKAlarm
-@synthesize repeatSchedule = _repeatSchedule;
 
+@implementation TICKAlarm
+@synthesize repeatSchedule = _repeatSchedule,
+			binaryRepresentation = _binaryRepresentation;
+
+- (id)init
+{
+    self = [super init];
+    if (self)
+    {
+		NSDate *date = [NSDate date];
+		NSCalendar *calendar = [NSCalendar currentCalendar];
+		NSDateComponents *components = [calendar components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:date];
+
+		_binaryRepresentation.hour = [components hour];
+		_binaryRepresentation.minute = [components minute];
+		_binaryRepresentation.repeatSchedule = 0b10000000;
+		
+    }
+    return self;
+}
 - (id)initWithBinary: (alarm_t) alarm
 {
     self = [super init];
     if (self)
     {
-        self.binaryRepresentation = alarm;
+        _binaryRepresentation = alarm;
     }
     return self;
 }
 
 - (BOOL) repeatsForDayOfWeek: (DayOfWeek) dayOfWeek{
 	return [[self.repeatSchedule objectAtIndex:dayOfWeek] boolValue];
+}
+
+- (void) setRepeatForDayOfWeek:(DayOfWeek) dayOfWeek withValue:(BOOL) value{
+	uint8_t tempRepeatSchedule = self.binaryRepresentation.repeatSchedule;
+	int numberOfPlacesToShift = 6-dayOfWeek;
+	tempRepeatSchedule &= ~(1 << numberOfPlacesToShift);
+	tempRepeatSchedule |= (value << numberOfPlacesToShift);
+	alarm_t tempAlarm;
+	tempAlarm.repeatSchedule = tempRepeatSchedule;
+	tempAlarm.hour = self.binaryRepresentation.hour;
+	tempAlarm.minute = self.binaryRepresentation.minute;
+	_binaryRepresentation= tempAlarm;
+	
 }
 
 - (NSString*) getStringRepresentationOfRepeatSchedule{
@@ -34,10 +65,12 @@
 	if(rs[6]) temp =[temp stringByAppendingString:@"Sat "];
 	
 	if(rs[0] && rs[6] && !(rs[1] || rs[2] || rs[3] || rs [4] || rs[5])) temp = @"Weekends";
-	if((rs[1] && rs[2] && rs[3] && rs [4] && rs[5]) && !(rs[0] || rs[6]) ) temp = @"Weekdays";
-	if(rs[1] && rs[2] && rs[3] && rs [4] && rs[5] && rs[0] && rs[6] ) temp = @"Every day";
+	if((rs[1] && rs[2] && rs[3] && rs[4] && rs[5]) && !(rs[0] || rs[6]) ) temp = @"Weekdays";
+	if(rs[1] && rs[2] && rs[3] && rs[4] && rs[5] && rs[0] && rs[6] ) temp = @"Every day";
+	if(!rs[1] && !rs[2] && !rs[3] && !rs[4] && !rs[5] && !rs[0] && !rs[6] ) temp =@"Never";
 	return temp;
 }
+
 
 - (NSArray*) repeatSchedule{
 	NSArray* tempArray = [[NSArray alloc] init];
@@ -64,7 +97,7 @@
 	tempAlarm.repeatSchedule = tempRepeatSchedule;
 	tempAlarm.hour = self.binaryRepresentation.hour;
 	tempAlarm.minute = self.binaryRepresentation.minute;
-	self.binaryRepresentation= tempAlarm;
+	_binaryRepresentation= tempAlarm;
 	
 	_repeatSchedule = repeatSchedule;
 }
