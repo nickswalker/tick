@@ -57,6 +57,10 @@
 	[self sendBytes:message size:sizeof(message)];
 	
 }
+- (void)resetToDefaults{
+	unsigned char message[] = {RESET};
+	[self sendBytes:message size:sizeof(message)];
+}
 
 //- (void)alertView:(UIAlertView *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
 //	

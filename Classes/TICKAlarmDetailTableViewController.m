@@ -57,6 +57,11 @@
 	self.alarm.hour = [components hour];
 	self.alarm.minute = [components minute];
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //Change the selected background view of the cell.
+	[tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
 	TICKRepeatDetailTableViewController* destinationViewController = (TICKRepeatDetailTableViewController*)[segue destinationViewController];

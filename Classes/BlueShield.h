@@ -33,6 +33,7 @@ typedef void (^BSSuccessBlock)(id response, NSError *error);
 - (void)printKnownPeripherals;
 - (void)printPeripheralInfo:(CBPeripheral*)peripheral;
 - (void)connectPeripheral:(CBPeripheral *)peripheral;
+- (void)disconnectPeripheral;
 
 - (CBService *)findServiceFromUUID:(CBUUID *)UUID p:(CBPeripheral *)p;
 - (CBCharacteristic *)findCharacteristicFromUUID:(CBUUID *)UUID service:(CBService*)service;

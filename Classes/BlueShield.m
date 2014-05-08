@@ -192,6 +192,9 @@
     [_cm connectPeripheral:_activePeripheral options:nil];
 }
 
+-(void) disconnectPeripheral{
+	[_cm cancelPeripheralConnection:self.activePeripheral];
+}
 /*!
  *  @method centralManagerStateToString:
  *

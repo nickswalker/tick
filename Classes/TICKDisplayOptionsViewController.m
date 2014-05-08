@@ -37,11 +37,26 @@
 	
 }
 
+-(IBAction)reset:(id)sender{
+	UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Hello World!"
+                                                      message:@"Are you sure? This will erase all customizations."
+                                                     delegate:self
+                                            cancelButtonTitle:@"Cancel"
+                                            otherButtonTitles:@"OK", nil];
+	
+    [message show];
+}
+
 -(IBAction)sliderSettingChanged:(UISlider*)sender{
 	if (sender == [self brightness])
 		[self sendSetting:BRIGHTNESS value:(char)[sender value]];
 	
 	
+}
+-(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex{
+	if (buttonIndex == 0) {
+		[self.tock resetToDefaults];
+	}
 }
 - (IBAction)reloadClicked:(id)sender {
  

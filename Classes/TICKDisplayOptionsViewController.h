@@ -4,7 +4,7 @@
 
 @class TICKTock;
 
-@interface TICKDisplayOptionsViewController : UITableViewController
+@interface TICKDisplayOptionsViewController : UITableViewController <UIAlertViewDelegate>
 
 @property (nonatomic, strong) TICKTock *tock;
 @property (nonatomic, strong) CBPeripheral *peripheral;
@@ -18,5 +18,5 @@
 
 -(IBAction)sliderSettingChanged:(UISlider*)sender;
 -(IBAction)settingChanged:(UISwitch*)sender;
-
+-(IBAction)reset:(id)sender;
 @end
