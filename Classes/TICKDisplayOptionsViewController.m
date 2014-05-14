@@ -54,21 +54,30 @@
 	
 }
 -(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex{
-	if (buttonIndex == 0) {
+	if (buttonIndex == 1) {
 		[self.tock resetToDefaults];
 	}
 }
 - (IBAction)reloadClicked:(id)sender {
- 
+	//[self.tock detachFromTock];
+	//[self.tock attachToTock];
+	[self.tock fetchAlarm:0];
 }
 -(void)sendSetting:(Option)option value:(unsigned char)value{
-	unsigned char byte1 = value;
-	unsigned char message[] = {SETSETTING, option, byte1};
-	[self.tock sendBytes:message size:sizeof(message)];
+	[self sendSetting:option value:value];
 }
 
 -(void)retrieveSetting:(Option)option value:(BOOL)value{
 	
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	if(indexPath.section == 1 && indexPath.row == 0){
+		[self reset:nil];
+		[tableView deselectRowAtIndexPath:indexPath animated:YES];
+	}
+	else
+	[tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
 @end

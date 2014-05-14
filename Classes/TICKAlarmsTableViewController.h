@@ -7,7 +7,7 @@
 @interface TICKAlarmsTableViewController : UITableViewController <AlarmCreation>
 
 @property TICKTock* tock;
-@property NSArray *alarms;
+
 @property IBOutlet UIBarButtonItem* editButton;
 
 - (void)alarmDetailWasDismissed:(TICKAlarm *)alarm;

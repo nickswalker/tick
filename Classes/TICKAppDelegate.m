@@ -8,32 +8,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 	
-    alarm_t test;
-	test.hour = 15;
-	test.minute = 30;
-	test.repeatSchedule = 0b10011110;
-	NSMutableArray* alarms = [[NSMutableArray alloc] init];
-	TICKAlarm* tempAlarm = [[TICKAlarm alloc] initWithBinary:test];
-	[alarms addObject:tempAlarm];
-	
-	
-	test.repeatSchedule = 0b10111110;
-	tempAlarm = [[TICKAlarm alloc] initWithBinary:test];
-	[alarms addObject:tempAlarm];
-	
-	test.repeatSchedule = 0b11111111;
-	tempAlarm = [[TICKAlarm alloc] initWithBinary:test];
-	[alarms addObject:tempAlarm];
-	
-	test.repeatSchedule = 0b10110111;
-	tempAlarm = [[TICKAlarm alloc] initWithBinary:test];
-	[alarms addObject:tempAlarm];
 	
 	
 	UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
     UINavigationController *navigationController = [tabBarController viewControllers][1];
     TICKAlarmsTableViewController *alarmsViewController = [navigationController viewControllers][0];
-    alarmsViewController.alarms = alarms;
 	
     return YES;
 }
@@ -66,7 +45,7 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
 	TICKTabBarViewController *tabBarController = (TICKTabBarViewController *)self.window.rootViewController;
-    [tabBarController.tock disconnectPeripheral];
+    //[tabBarController.tock disconnectPeripheral];
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 

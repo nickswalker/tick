@@ -1,4 +1,5 @@
 #import "TICKColorViewController.h"
+#import "TICKAppDelegate.h"
 #import "TICKTock.h"
 #import "BSDefines.h"
 #import <QuartzCore/QuartzCore.h>
@@ -26,14 +27,15 @@
 	float b = self.bSlider.value/255;
 
 	[self.colorPreview setBackgroundColor:[UIColor colorWithRed:r green:g blue:b alpha:1]];
+	TICKAppDelegate *appDelegate = (TICKAppDelegate *)[[UIApplication sharedApplication] delegate];
+	[appDelegate.window setTintColor:[UIColor colorWithRed:r green:g blue:b alpha:1]];
 }
 - (IBAction)sendColorToTock:(UISlider *)sender {
 	unsigned char r = (char)self.rSlider.value;
 	unsigned char g = (char)self.gSlider.value;
 	unsigned char b = (char)self.bSlider.value;
-	unsigned char message[] = {SETLIGHTCOLOR, r, g, b};
 	
-	[self.tock sendBytes:message size:sizeof(message)];
+	[self.tock sendColor:r green:g blue:b];
 }
 
 

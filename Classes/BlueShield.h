@@ -8,7 +8,7 @@
  
  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  
-*/
+ */
 
 #import <Foundation/Foundation.h>
 #import <CoreBluetooth/CoreBluetooth.h>
@@ -33,7 +33,6 @@ typedef void (^BSSuccessBlock)(id response, NSError *error);
 - (void)printKnownPeripherals;
 - (void)printPeripheralInfo:(CBPeripheral*)peripheral;
 - (void)connectPeripheral:(CBPeripheral *)peripheral;
-- (void)disconnectPeripheral;
 
 - (CBService *)findServiceFromUUID:(CBUUID *)UUID p:(CBPeripheral *)p;
 - (CBCharacteristic *)findCharacteristicFromUUID:(CBUUID *)UUID service:(CBService*)service;
@@ -48,6 +47,4 @@ typedef void (^BSSuccessBlock)(id response, NSError *error);
 - (void)didPowerOnBlock:(BSSuccessBlock)block;
 - (void)didDiscoverCharacteristicsBlock:(BSSuccessBlock)block;
 
-- (void)sendBytes:(unsigned char *)bytes size:(size_t)size;
-- (void)sendText:(NSString*)string;
 @end

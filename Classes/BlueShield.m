@@ -8,10 +8,9 @@
  
  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  
-*/
+ */
 
 #import "BlueShield.h"
-#import "BSDefines.h"
 
 @interface BlueShield ()
 
@@ -192,9 +191,6 @@
     [_cm connectPeripheral:_activePeripheral options:nil];
 }
 
--(void) disconnectPeripheral{
-	[_cm cancelPeripheralConnection:self.activePeripheral];
-}
 /*!
  *  @method centralManagerStateToString:
  *
@@ -453,9 +449,7 @@
 - (void)didDiscoverCharacteristicsBlock:(BSSuccessBlock)block {
     _discoveredCharacteristicsBlock = block;
 }
-- (void)pairWithShield{
-	
-}
+
 
 #pragma mark - CBCentralManagerDelegate
 
@@ -496,7 +490,6 @@
     [self.activePeripheral discoverServices:nil];
 }
 
-
 #pragma mark - CBPeripheralDelegate
 
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverServices:(NSError *)error {
@@ -510,32 +503,14 @@
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
-    if (error) {
+    printf("\nslog");
+	if (error) {
         return;
     }
     
     if (_updatedValueBlock) {
         _updatedValueBlock(characteristic.value, error);
     }
-}
-
-- (void)sendText:(NSString*)string {
-
-    NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
-    [self writeValue:[CBUUID UUIDWithString:BS_SERIAL_SERVICE_UUID]
-     characteristicUUID:[CBUUID UUIDWithString:BS_SERIAL_TX_UUID]
-                      p: self.activePeripheral
-                   data:data];
-}
-- (void)sendBytes:(unsigned char *)message size:(size_t)size {
-	for(int i = 0; i < size ; i++){
-		NSLog(@"%d: %hhd", i, message[i]);
-	}
-    NSData *data = [NSData dataWithBytes:message length:size];
-    [self writeValue:[CBUUID UUIDWithString:BS_SERIAL_SERVICE_UUID]
-     characteristicUUID:[CBUUID UUIDWithString:BS_SERIAL_TX_UUID]
-                      p: self.activePeripheral
-                   data:data];
 }
 
 /*

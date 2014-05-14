@@ -80,7 +80,6 @@
 		tempBool =  [NSNumber numberWithBool:((self.binaryRepresentation.repeatSchedule >> placesToShift) & 0b00000001)];
 		tempArray = [tempArray arrayByAddingObject:tempBool];
 	}
-	NSLog(@"%@",tempArray);
 	return tempArray;
 }
 - (void) setRepeatSchedule:(NSArray *)repeatSchedule{

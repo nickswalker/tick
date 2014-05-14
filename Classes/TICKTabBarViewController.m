@@ -10,7 +10,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	NSLog(@"TabbarLoaded");
+	
     self.tock = [[TICKTock alloc] init];
 	[self.tock didPowerOnBlock:^(id response, NSError *error) {
         [self.tock attachToTock];

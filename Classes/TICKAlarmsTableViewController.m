@@ -9,7 +9,7 @@
 @end
 
 @implementation TICKAlarmsTableViewController
-@synthesize alarms = _alarms;
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -61,16 +61,14 @@
 	else {
 		[self setEditing:YES animated:YES];
 	}
-	unsigned char message[2] = {GETALARM,1};
-	[self.tock sendBytes:message size:2];
 	
 }
 #pragma mark - Table view data source
 - (void)alarmDetailWasDismissed:(TICKAlarm *)alarm{
 	
-	NSMutableArray* temp = [self.alarms mutableCopy];
+	NSMutableArray* temp = [self.tock.alarms mutableCopy];
 	[temp addObject: alarm];
-	self.alarms = temp;
+	self.tock.alarms = temp;
 	[self.tableView reloadData];
 	
 }
@@ -83,13 +81,13 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.alarms count];
+    return [self.tock.alarms count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TICKAlarmTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Alarm" forIndexPath:indexPath];
-    cell.alarm = self.alarms[indexPath.row];
+    cell.alarm = self.tock.alarms[indexPath.row];
     
     return cell;
 }
@@ -101,23 +99,15 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-		NSMutableArray* temp = [self.alarms mutableCopy];
+		NSMutableArray* temp = [self.tock.alarms mutableCopy];
 		[temp removeObjectAtIndex:indexPath.row];
-		self.alarms = temp;
+		self.tock.alarms = temp;
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 		
     }
 }
 
 
-- (NSArray*) alarms{
-	return _alarms;
-
-}
-
-- (void) setAlarms:(NSArray *)alarms{
-	_alarms = alarms;
-}
 
 #pragma mark - Navigation
 
@@ -138,8 +128,6 @@
 		destinationViewController.delegate = sender;
 		destinationViewController.title = @"Edit Alarm";
 		destinationViewController.alarm= sender.alarm;
-		NSLog(@"%@", sender);
-		NSLog(@"%@", sender.alarm);
 	
 	}
 }
