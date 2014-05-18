@@ -1,10 +1,11 @@
 #import <UIKit/UIKit.h>
 #import "TICKTock.h"
 #import "TICKAlarmDetailTableViewController.h"
+#import "TICKAlarmTableViewCell.h"
 
 @class TICKTock;
 
-@interface TICKAlarmsTableViewController : UITableViewController <AlarmCreation>
+@interface TICKAlarmsTableViewController : UITableViewController <AlarmCreation, AlarmEditing>
 
 @property TICKTock* tock;
 
@@ -12,8 +13,5 @@
 
 - (void)alarmDetailWasDismissed:(TICKAlarm *)alarm;
 - (IBAction)editButtonPressed:(UIBarButtonItem*)sender;
-
-
-
 
 @end

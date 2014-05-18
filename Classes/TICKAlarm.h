@@ -34,7 +34,10 @@ typedef enum {
 @property NSArray* repeatSchedule;
 
 - (id) initWithBinary:(alarm_t)alarm;
+- (id) initWithInt:(uint32_t)integer;
 - (BOOL) repeatsForDayOfWeek: (DayOfWeek) dayOfWeek;
 - (void) setRepeatForDayOfWeek:(DayOfWeek) dayOfWeek withValue:(BOOL) value;
 - (NSString *) getStringRepresentationOfRepeatSchedule;
+
+- (uint32_t) getIntRepresentation;
 @end

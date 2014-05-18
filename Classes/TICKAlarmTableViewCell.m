@@ -62,6 +62,8 @@
 }
 - (void) alarmDetailWasDismissed:(TICKAlarm *)alarm{
 	self.alarm = alarm;
+	[self.delegate alarmWasEdited:alarm inCell:self];
+	
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {

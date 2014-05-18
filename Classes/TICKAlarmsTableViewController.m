@@ -10,20 +10,6 @@
 
 @implementation TICKAlarmsTableViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-		self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
-		[self.tock didUpdateValueBlock:^(NSData *data, NSError *error) {
-			//NSString *recv = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-			//this.
-		}];
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -31,12 +17,11 @@
 	color.backgroundColor = [UIColor colorWithRed:.933 green:.933 blue:.9531 alpha:1];
 	[self.tableView setBackgroundView:color];
 	
-	[self.tock syncCurrentDateAndTime];
-	
 }
 - (void)viewWillAppear:(BOOL)animated
 {
     [self setEditing:false animated:false];
+	[self.tableView reloadData];
 }
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {
     [super setEditing:editing animated:animated];
@@ -63,15 +48,23 @@
 	}
 	
 }
-#pragma mark - Table view data source
+#pragma Protocol Implementations
+
 - (void)alarmDetailWasDismissed:(TICKAlarm *)alarm{
 	
-	NSMutableArray* temp = [self.tock.alarms mutableCopy];
-	[temp addObject: alarm];
-	self.tock.alarms = temp;
+	[self.tock sendAlarm: alarm number: [self.tock firstEmptyAlarm]];
+	//[self.tock fetchAlarms];
 	[self.tableView reloadData];
 	
 }
+- (void) alarmWasEdited:(TICKAlarm*)alarm inCell:(UITableViewCell *)cell{
+	UITableView* table = (UITableView *)[cell superview];
+	NSIndexPath* indexPath = [table indexPathForCell:cell];
+	[self.tock sendAlarm:alarm number:indexPath.row+1];
+	[self.tableView reloadData];
+	
+}
+#pragma mark - Table view data source
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //Change the selected background view of the cell.
@@ -81,32 +74,27 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.tock.alarms count];
+    return [self.tock numberOfAlarms];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TICKAlarmTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Alarm" forIndexPath:indexPath];
-    cell.alarm = self.tock.alarms[indexPath.row];
+
+    cell.alarm = (TICKAlarm*)[self.tock.alarms objectForKey:[NSNumber numberWithInt:(indexPath.row+1)]];
     
     return cell;
 }
 
-
-
-// Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-		NSMutableArray* temp = [self.tock.alarms mutableCopy];
-		[temp removeObjectAtIndex:indexPath.row];
-		self.tock.alarms = temp;
+		[self.tock clearAlarm:indexPath.row+1];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 		
     }
 }
-
 
 
 #pragma mark - Navigation

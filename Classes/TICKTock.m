@@ -7,32 +7,14 @@
 #endif
 
 @implementation TICKTock
+
 -(id) init{
 	self = [super init];
+	self.alarms = [[NSMutableDictionary alloc] init];
 	[super controlSetup];
-	alarm_t test;
-	test.hour = 15;
-	test.minute = 30;
-	test.repeatSchedule = 0b10011110;
-	NSMutableArray* alarms = [[NSMutableArray alloc] init];
-	TICKAlarm* tempAlarm = [[TICKAlarm alloc] initWithBinary:test];
-	[alarms addObject:tempAlarm];
-	
-	
-	test.repeatSchedule = 0b10111110;
-	tempAlarm = [[TICKAlarm alloc] initWithBinary:test];
-	[alarms addObject:tempAlarm];
-	
-	test.repeatSchedule = 0b11111111;
-	tempAlarm = [[TICKAlarm alloc] initWithBinary:test];
-	[alarms addObject:tempAlarm];
-	
-	test.repeatSchedule = 0b10110111;
-	tempAlarm = [[TICKAlarm alloc] initWithBinary:test];
-	[alarms addObject:tempAlarm];
-	self.alarms = alarms;
 	return self;
 }
+
 - (void)attachToTock{
 	double timeout = 3;
     [self findBLEPeripherals:timeout];
@@ -59,30 +41,38 @@
 			self.activePeripheral = [self.peripherals objectAtIndex:0];
 			
 			[self connectPeripheral:self.activePeripheral];
-			[self syncCurrentDateAndTime];
-			[self didDiscoverCharacteristicsBlock:^(id response, NSError *error) {
-				double delayInSeconds = 3.0;
-				dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-				dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-					[self notification:[CBUUID UUIDWithString:BS_SERIAL_SERVICE_UUID]
-					   characteristicUUID:[CBUUID UUIDWithString:BS_SERIAL_RX_UUID]
-									 p: self.activePeripheral
-									   on:YES];
+			
+			[self didDiscoverCharacteristicsBlock:^(CBUUID* response, NSError *error) {
+				NSLog(@"%@",response);
+				NSString* UUID = response.UUIDString;
+				if ([UUID isEqual: BS_SERIAL_SERVICE_UUID]){
 					
-					[self didUpdateValueBlock:^(NSData *data, NSError *error) {
-						[self processCommand:data error:error];
-					}];
-				});
+				
+					double delayInSeconds = 3.0;
+					dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+					dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+						[self notification:[CBUUID UUIDWithString:BS_SERIAL_SERVICE_UUID]
+						   characteristicUUID:[CBUUID UUIDWithString:BS_SERIAL_RX_UUID]
+										 p: self.activePeripheral
+										   on:YES];
+						[self syncCurrentDateAndTime];
+						[self fetchAlarms];
+						
+						[self didUpdateValueBlock:^(NSData *data, NSError *error) {
+							[self processCommand:data error:error];
+						}];
+					});
+				}
 			}];
 	
 		}
 	});
 }
 -(void)detachFromTock{
-	//[self disconnectPeripheral];
+	[self.cm cancelPeripheralConnection:self.activePeripheral];
 }
 
-#pragma Send UART Data
+#pragma mark Send UART Data
 
 - (void)sendText:(NSString*)string {
 	
@@ -108,15 +98,28 @@
 
 
 - (void)processCommand: (NSData*)message error:(NSError*) error{
-	uint8_t *byteData = (uint8_t*)malloc(message.length);
-	memcpy(byteData, [message bytes], message.length);
+	uint8_t *byteData = (uint8_t*)malloc((int)message.length);
+	memcpy(byteData, [message bytes], (int)message.length);
 	NSLog(@"Message Recieved");
-	for(int i = 0; i < sizeof(byteData) ; i++){
+	for(int i = 0; i < message.length ; i++){
 		NSLog(@"%d: %hhd", i, byteData[i]);
+	}
+	switch ( (Command)byteData[0] ) {
+		case GETALARM:{
+			NSLog(@"%@",self.alarms);
+			int alarm = [self fourBytesToInt:byteData[2] byte2:byteData[3] byte3:byteData[4] byte4:byteData[5]];
+			[self.alarms setObject:[[TICKAlarm alloc] initWithInt:alarm] forKey: [NSNumber numberWithInt:byteData[1]] ];
+			NSLog(@"%@",self.alarms);
+		}
+			
+			break;
+		
+		default:
+			break;
 	}
 }
 
-#pragma Commands
+#pragma mark Commands
 - (void)syncCurrentDateAndTime
 {
 	//In GMT
@@ -138,13 +141,52 @@
 	unsigned char message[] = {RESET};
 	[self sendBytes:message size:sizeof(message)];
 }
-
+- (void)fetchAlarmWithNumber:(NSNumber*)alarmNumber{
+	[self fetchAlarm:alarmNumber.intValue];
+	
+}
 - (void)fetchAlarm:(int)alarmNumber{
 	unsigned char message[]  = {GETALARM, alarmNumber};
 	[self sendBytes:message size:sizeof(message)];
 	
 }
-
+- (void)fetchAlarms{
+	for (int i = 1; i<9; i++) {
+		[self performSelector:@selector(fetchAlarmWithNumber:) withObject:[NSNumber numberWithInt:i ] afterDelay:i*.3];
+		
+	}
+}
+- (void)sendAlarm:(TICKAlarm*)alarm number:(int)alarmNumber{
+	
+	[self.alarms setObject:alarm forKey: [NSNumber numberWithInt:alarmNumber] ];
+	NSLog(@"%@",alarm);
+	uint8_t bytes[4];
+	[self intToFourBytes:[alarm getIntRepresentation] buffer:bytes];
+	uint8_t message[] = {SETALARM, alarmNumber, bytes[0], bytes[1], alarm.binaryRepresentation.repeatSchedule, bytes[3]};
+	[self sendBytes:message size:sizeof(message)];
+}
+- (void)clearAlarm:(int)alarmNumber{
+	TICKAlarm* alarm = [[TICKAlarm alloc] initWithInt:0];
+	[self sendAlarm:alarm number:alarmNumber];
+}
+- (int)numberOfAlarms{
+	int number = 0;
+	for(id key in self.alarms) {
+		TICKAlarm *alarm = (TICKAlarm*)[self.alarms objectForKey:key];
+		if (alarm.getIntRepresentation != 0)
+			number++;
+	}
+	return number;
+}
+- (int)firstEmptyAlarm{
+	for (int i = 1; i < 10; i++) {
+		TICKAlarm *alarm = (TICKAlarm*)[self.alarms objectForKey:[NSNumber numberWithInt:i]];
+		if (alarm.getIntRepresentation == 0)
+			return i;
+		
+	}
+	return 9;
+}
 -(void)sendColor:(uint8_t)r green:(int8_t)g blue:(uint8_t)b{
 
 	unsigned char message[] = {SETLIGHTCOLOR, r, g, b};
@@ -155,5 +197,28 @@
 	unsigned char byte1 = value;
 	unsigned char message[] = {SETSETTING, option, byte1};
 	[self sendBytes:message size:sizeof(message)];
+}
+-(void)testConnection{
+	unsigned char message[] = {TESTCONNECTION};
+	[self sendBytes:message size:sizeof(message)];
+}
+#pragma mark Bitpacking Utilities
+
+//Little endian: Least significant byte first
+-(uint32_t)fourBytesToInt:(uint8_t[]) bytes{
+	return  (uint32_t)bytes[0] + ((uint32_t)bytes[1] << 8) + ((uint32_t)bytes[2] << 16) + ((uint32_t)bytes[3] << 24);
+}
+-(uint32_t)fourBytesToInt:(uint8_t) byte1 byte2:(uint8_t) byte2 byte3:(uint8_t) byte3 byte4:(uint8_t) byte4{
+	uint8_t bytes[] = {byte1,byte2,byte3,byte4};
+	return  [self fourBytesToInt:bytes];
+}
+
+-(BOOL)intToFourBytes:(uint32_t)integer buffer:(uint8_t[]) bytes{
+	bytes[0] = (integer >> 0);
+	bytes[1] = (integer >> 8);
+	bytes[2] = (integer >> 16);
+	bytes[3] = (integer >> 24);
+	
+	return true;
 }
 @end

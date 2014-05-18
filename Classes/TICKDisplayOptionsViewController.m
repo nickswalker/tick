@@ -37,7 +37,7 @@
 	
 }
 
--(IBAction)reset:(id)sender{
+-(void)reset:(id)sender{
 	UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Hello World!"
                                                       message:@"Are you sure? This will erase all customizations."
                                                      delegate:self

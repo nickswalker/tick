@@ -17,6 +17,7 @@
 @property (copy, nonatomic) BSSuccessBlock updatedValueBlock;
 @property (copy, nonatomic) BSSuccessBlock powerOnBlock;
 @property (copy, nonatomic) BSSuccessBlock discoveredCharacteristicsBlock;
+@property (copy, nonatomic) BSSuccessBlock didConnectToPeripheral;
 
 @end
 
@@ -42,7 +43,7 @@
     CBUUID *cu = characteristicUUID;
     CBService *service = [self findServiceFromUUID:su p:p];
     if (!service) {
-        printf("Could not find service with UUID %s on peripheral with UUID %s\r\n",[self CBUUIDToString:su],[self UUIDToString:p.UUID]);
+        //printf("Could not find service with UUID %s on peripheral with UUID %s\r\n",[self CBUUIDToString:su],[self UUIDToString:p.UUID]);
         return;
     }
     CBCharacteristic *characteristic = [self findCharacteristicFromUUID:cu service:service];
@@ -75,7 +76,7 @@
     CBUUID *cu = characteristicUUID;
     CBService *service = [self findServiceFromUUID:su p:p];
     if (!service) {
-        printf("Could not find service with UUID %s on peripheral with UUID %s\r\n",[self CBUUIDToString:su],[self UUIDToString:p.UUID]);
+        //printf("Could not find service with UUID %s on peripheral with UUID %s\r\n",[self CBUUIDToString:su],[self UUIDToString:p.UUID]);
         return;
     }
     CBCharacteristic *characteristic = [self findCharacteristicFromUUID:cu service:service];
@@ -105,7 +106,7 @@
     CBUUID *cu = characteristicUUID;
     CBService *service = [self findServiceFromUUID:su p:p];
     if (!service) {
-        printf("Could not find service with UUID %s on peripheral with UUID %s\r\n",[self CBUUIDToString:su],[self UUIDToString:p.UUID]);
+        //printf("Could not find service with UUID %s on peripheral with UUID %s\r\n",[self CBUUIDToString:su],[self UUIDToString:p.UUID]);
         return;
     }
     CBCharacteristic *characteristic = [self findCharacteristicFromUUID:cu service:service];
@@ -160,7 +161,7 @@
  */
 - (int) findBLEPeripherals:(int) timeout {
     if (self.cm.state != CBCentralManagerStatePoweredOn) {
-        printf("CoreBluetooth not correctly initialized !\r\n");
+        //printf("CoreBluetooth not correctly initialized !\r\n");
         printf("State = %d (%s)\r\n",self.cm.state,[self centralManagerStateToString:self.cm.state]);
         return -1;
     }
@@ -229,8 +230,8 @@
  */
 - (void) scanTimer:(NSTimer *)timer {
     [self.cm stopScan];
-    printf("Stopped Scanning\r\n");
-    printf("Known peripherals : %d\r\n",[_peripherals count]);
+    //printf("Stopped Scanning\r\n");
+    //printf("Known peripherals : %d\r\n",[_peripherals count]);
     [self printKnownPeripherals];
 }
 
@@ -261,13 +262,13 @@
  */
 - (void) printPeripheralInfo:(CBPeripheral*)peripheral {
     CFStringRef s = CFUUIDCreateString(NULL, peripheral.UUID);
-    printf("------------------------------------\r\n");
+    /*printf("------------------------------------\r\n");
     printf("Peripheral Info :\r\n");
     printf("UUID : %s\r\n",CFStringGetCStringPtr(s, 0));
     printf("RSSI : %d\r\n",[peripheral.RSSI intValue]);
     printf("Name : %s\r\n",[peripheral.name cStringUsingEncoding:NSStringEncodingConversionAllowLossy]);
     printf("isConnected : %d\r\n",peripheral.isConnected);
-    printf("-------------------------------------\r\n");
+    printf("-------------------------------------\r\n");*/
     
 }
 
@@ -449,12 +450,15 @@
 - (void)didDiscoverCharacteristicsBlock:(BSSuccessBlock)block {
     _discoveredCharacteristicsBlock = block;
 }
+- (void)didConnectToPeripheral:(BSSuccessBlock)block{
+    _didConnectToPeripheral = block;
+}
 
 
 #pragma mark - CBCentralManagerDelegate
 
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central {
-    printf("Status of CoreBluetooth central manager changed %d (%s)\r\n",central.state,[self centralManagerStateToString:central.state]);
+    //printf("Status of CoreBluetooth central manager changed %d (%s)\r\n",central.state,[self centralManagerStateToString:central.state]);
     if (central.state == CBCentralManagerStatePoweredOn) {
         if (_powerOnBlock) {
             _powerOnBlock(nil, nil);
@@ -474,14 +478,14 @@
             CBPeripheral *p = [self.peripherals objectAtIndex:i];
             if ([self UUIDSAreEqual:p.UUID u2:peripheral.UUID]) {
                 [self.peripherals replaceObjectAtIndex:i withObject:peripheral];
-                printf("Duplicate UUID found updating ...\r\n");
+                //printf("Duplicate UUID found updating ...\r\n");
                 return;
             }
         }
         [self.peripherals addObject:peripheral];
-        printf("New UUID, adding\r\n");
+        //printf("New UUID, adding\r\n");
     }
-    printf("didDiscoverPeripheral\r\n");
+    //printf("didDiscoverPeripheral\r\n");
 }
 
 - (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral {
@@ -503,7 +507,6 @@
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
-    printf("\nslog");
 	if (error) {
         return;
     }
@@ -526,18 +529,18 @@
  */
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error {
     if (!error) {
-        printf("Characteristics of service with UUID : %s found\r\n", [self CBUUIDToString:service.UUID]);
+        //printf("Characteristics of service with UUID : %s found\r\n", [self CBUUIDToString:service.UUID]);
         for(int i = 0; i < service.characteristics.count; i++) {
             CBCharacteristic *c = [service.characteristics objectAtIndex:i];
-            printf("Found characteristic %s\r\n",[ self CBUUIDToString:c.UUID]);
+            //printf("Found characteristic %s\r\n",[ self CBUUIDToString:c.UUID]);
             CBService *s = [peripheral.services objectAtIndex:(peripheral.services.count - 1)];
             if([self compareCBUUID:service.UUID UUID2:s.UUID]) {
-                printf("Finished discovering characteristics");
+                //printf("Finished discovering characteristics");
             }
         }
         
         if (_discoveredCharacteristicsBlock) {
-            _discoveredCharacteristicsBlock(service, nil);
+            _discoveredCharacteristicsBlock(service.UUID, nil);
         }
     } else {
         printf("Characteristic discorvery unsuccessfull !\r\n");

@@ -30,6 +30,17 @@
     }
     return self;
 }
+- (id)initWithInt: (uint32_t) integer
+{
+	uint8_t bytes[4];
+	[self intToFourBytes:integer buffer:bytes];
+	alarm_t alarm;
+	alarm.minute=bytes[0];
+	alarm.hour=bytes[1];
+	alarm.repeatSchedule=bytes[2];
+	
+	return [self initWithBinary:alarm];
+}
 
 - (BOOL) repeatsForDayOfWeek: (DayOfWeek) dayOfWeek{
 	return [[self.repeatSchedule objectAtIndex:dayOfWeek] boolValue];
@@ -113,6 +124,28 @@
 }
 - (void) setMinute:(uint8_t)minute{
 	_binaryRepresentation.minute = minute;
+}
+
+-(uint32_t)getIntRepresentation{
+	uint8_t bytes[4] = {self.minute, self.hour, self.binaryRepresentation.repeatSchedule, 0};
+	return [self fourBytesToInt:bytes];
+}
+#pragma Bitpacker
+
+-(BOOL)intToFourBytes:(uint32_t)integer buffer:(uint8_t[]) bytes{
+	bytes[0] = (integer >> 0);
+	bytes[1] = (integer >> 8);
+	bytes[2] = (integer >> 16);
+	bytes[3] = (integer >> 24);
+	
+	return true;
+}
+-(uint32_t)fourBytesToInt:(uint8_t[]) bytes{
+	return  (uint32_t)bytes[0] + ((uint32_t)bytes[1] << 8) + ((uint32_t)bytes[2] << 16) + ((uint32_t)bytes[3] << 24);
+}
+
+- (NSString *)description {
+	return [NSString stringWithFormat: @"Alarm: Time=%d:%d Repeats=%@", self.hour, self.minute, self.getStringRepresentationOfRepeatSchedule];
 }
 
 @end
