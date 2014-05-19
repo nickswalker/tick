@@ -11,12 +11,12 @@
 
 @property IBOutlet UISwitch *displayTwentyFourHourTime;
 @property IBOutlet UISwitch *blinkColon;
-@property IBOutlet UISwitch *louderAlarm;
 @property IBOutlet UISwitch *autoBrightness;
 @property IBOutlet UISlider *brightness;
-@property IBOutlet UISwitch *debugMode;
 
 -(IBAction)sliderSettingChanged:(UISlider*)sender;
 -(IBAction)settingChanged:(UISwitch*)sender;
--(IBAction)reset:(id)sender;
+-(void)reset:(id)sender;
+
+
 @end

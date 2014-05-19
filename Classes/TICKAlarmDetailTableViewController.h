@@ -13,6 +13,8 @@
 @property TICKAlarm* alarm;
 @property IBOutlet UIDatePicker* datePicker;
 @property IBOutlet UITableViewCell* repeatSchedule;
+@property IBOutlet UITableViewCell* deleteCell;
+@property BOOL isInEditMode;
 
 - (IBAction)cancel:(id)sender;
 - (IBAction)save:(id)sender;

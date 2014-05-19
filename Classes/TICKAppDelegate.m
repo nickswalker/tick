@@ -8,12 +8,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 	
-	
-	
-	UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
-    UINavigationController *navigationController = [tabBarController viewControllers][1];
-    TICKAlarmsTableViewController *alarmsViewController = [navigationController viewControllers][0];
-	
     return YES;
 }
 

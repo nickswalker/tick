@@ -11,12 +11,15 @@
 -(id) init{
 	self = [super init];
 	self.alarms = [[NSMutableDictionary alloc] init];
+	self.settings = [[NSMutableDictionary alloc] init];
+
 	[super controlSetup];
 	return self;
 }
 
 - (void)attachToTock{
-	double timeout = 3;
+	
+	double timeout = 1;
     [self findBLEPeripherals:timeout];
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(timeout * NSEC_PER_SEC));
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
@@ -43,13 +46,11 @@
 			[self connectPeripheral:self.activePeripheral];
 			
 			[self didDiscoverCharacteristicsBlock:^(CBUUID* response, NSError *error) {
-				NSLog(@"%@",response);
 				NSString* UUID = response.UUIDString;
 				if ([UUID isEqual: BS_SERIAL_SERVICE_UUID]){
 					
 				
-					double delayInSeconds = 3.0;
-					dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+					dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC));
 					dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
 						[self notification:[CBUUID UUIDWithString:BS_SERIAL_SERVICE_UUID]
 						   characteristicUUID:[CBUUID UUIDWithString:BS_SERIAL_RX_UUID]
@@ -57,6 +58,12 @@
 										   on:YES];
 						[self syncCurrentDateAndTime];
 						[self fetchAlarms];
+						dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+							[self fetchSettings];
+							NSLog(@"Yo");
+						});
+						
+						
 						
 						[self didUpdateValueBlock:^(NSData *data, NSError *error) {
 							[self processCommand:data error:error];
@@ -106,12 +113,12 @@
 	}
 	switch ( (Command)byteData[0] ) {
 		case GETALARM:{
-			NSLog(@"%@",self.alarms);
 			int alarm = [self fourBytesToInt:byteData[2] byte2:byteData[3] byte3:byteData[4] byte4:byteData[5]];
 			[self.alarms setObject:[[TICKAlarm alloc] initWithInt:alarm] forKey: [NSNumber numberWithInt:byteData[1]] ];
-			NSLog(@"%@",self.alarms);
 		}
-			
+		case GETSETTING:{
+			[self.settings setObject:[NSNumber numberWithInt: byteData[2]] forKey:[NSNumber numberWithInt: byteData[1]]];
+		}
 			break;
 		
 		default:
@@ -200,6 +207,16 @@
 }
 -(void)testConnection{
 	unsigned char message[] = {TESTCONNECTION};
+	[self sendBytes:message size:sizeof(message)];
+}
+-(void)fetchSettings{
+	for (int i = 0; i < 5; i++) {
+		[self performSelector:@selector(fetchSettingWithNumber:) withObject:[NSNumber numberWithInt:i ] afterDelay:i*.3];
+	}
+
+}
+-(void)fetchSettingWithNumber:(NSNumber*)number{
+	unsigned char message[] = {GETSETTING, number.intValue};
 	[self sendBytes:message size:sizeof(message)];
 }
 #pragma mark Bitpacking Utilities

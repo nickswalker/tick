@@ -35,6 +35,9 @@
 -(void) viewWillAppear:(BOOL)animated{
 	UILabel* detail = self.repeatSchedule.contentView.subviews[1];
 	detail.text= self.alarm.getStringRepresentationOfRepeatSchedule;
+	if (self.isInEditMode) {
+		[self.deleteCell removeFromSuperview];
+	}
 }
 
 - (void)didReceiveMemoryWarning
@@ -59,8 +62,15 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //Change the selected background view of the cell.
-	[tableView deselectRowAtIndexPath:indexPath animated:YES];
+
+
+		if(indexPath.section == 1 && indexPath.row == 0){
+			self.alarm = [[TICKAlarm alloc] initWithInt: 0x00000000];
+			[self.delegate alarmDetailWasDismissed:self.alarm];
+			[tableView deselectRowAtIndexPath:indexPath animated:YES];
+		}
+		else
+				[tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
