@@ -8,78 +8,78 @@
 
 /* Begin PBXBuildFile section */
 		01039F5A18D566910023F2B9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01039F5918D566910023F2B9 /* Images.xcassets */; };
-		010C813218E902BD007C8353 /* TICKColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF02B9A171ADC790006A153 /* TICKColorViewController.m */; };
-		01247C2B190C834000321DA4 /* TICKAlarmsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01247C2A190C834000321DA4 /* TICKAlarmsTableViewController.m */; };
-		01247C2E190C8B8200321DA4 /* TICKAlarm.m in Sources */ = {isa = PBXBuildFile; fileRef = 01247C2D190C8B8200321DA4 /* TICKAlarm.m */; };
-		01247C2F190CAEDC00321DA4 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B4729D1171A31EC00DBCCBB /* MainStoryboard_iPhone.storyboard */; };
-		01247C32190D641200321DA4 /* TICKTock.m in Sources */ = {isa = PBXBuildFile; fileRef = 01247C31190D641200321DA4 /* TICKTock.m */; };
+		01247C2F190CAEDC00321DA4 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B4729D1171A31EC00DBCCBB /* MainStoryboard.storyboard */; };
+		01247C32190D641200321DA4 /* TockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01247C31190D641200321DA4 /* TockManager.swift */; };
 		01247C35190D8CC600321DA4 /* alarms@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01247C33190D8CC600321DA4 /* alarms@2x.png */; };
 		01247C36190D8CC600321DA4 /* alarms-fill@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01247C34190D8CC600321DA4 /* alarms-fill@2x.png */; };
-		01247C39190D8E8100321DA4 /* TICKTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01247C38190D8E8100321DA4 /* TICKTabBarViewController.m */; };
 		01247C3F190DB66500321DA4 /* options-fill@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01247C3B190DB66500321DA4 /* options-fill@2x.png */; };
 		01247C40190DB66500321DA4 /* options@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01247C3C190DB66500321DA4 /* options@2x.png */; };
-		01247C41190DB66500321DA4 /* color-fill@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01247C3D190DB66500321DA4 /* color-fill@2x.png */; };
-		01247C42190DB66500321DA4 /* color@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01247C3E190DB66500321DA4 /* color@2x.png */; };
-		01247C45190DBCE700321DA4 /* TICKAlarmTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01247C44190DBCE700321DA4 /* TICKAlarmTableViewCell.m */; };
-		01551F1918E90D5F00174CA9 /* TICKDisplayOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01551F1818E90D5F00174CA9 /* TICKDisplayOptionsViewController.m */; };
-		01551F1C18E90E4600174CA9 /* TICKDebugConsoleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01551F1B18E90E4600174CA9 /* TICKDebugConsoleViewController.m */; };
-		01599489191334510032C96B /* TICKRepeatDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01599488191334510032C96B /* TICKRepeatDetailTableViewController.m */; };
-		0161BBD519291E3C0033F93C /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 0161BBD419291E3C0033F93C /* MBProgressHUD.m */; };
-		0161BBD8192948870033F93C /* TICKInfoViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0161BBD7192948870033F93C /* TICKInfoViewViewController.m */; };
-		01AD705F1911CEC0001AD8C9 /* TICKAlarmDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01AD705E1911CEC0001AD8C9 /* TICKAlarmDetailTableViewController.m */; };
 		1B4729C4171A31EC00DBCCBB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1B4729C2171A31EC00DBCCBB /* InfoPlist.strings */; };
-		1B4729C6171A31EC00DBCCBB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B4729C5171A31EC00DBCCBB /* main.m */; };
-		1B4729CA171A31EC00DBCCBB /* TICKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B4729C9171A31EC00DBCCBB /* TICKAppDelegate.m */; };
-		1B4729E2171A325400DBCCBB /* BlueShield.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B4729E1171A325400DBCCBB /* BlueShield.m */; };
+		D425EACF1A4E3C07004B6B1F /* NRFManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D425EACE1A4E3C07004B6B1F /* NRFManager.swift */; };
+		D438ED441A527CBB0076F078 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01247C38190D8E8100321DA4 /* TabBarViewController.swift */; };
+		D43CEE8F1A478A0D006CF1B4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D43CEE8D1A478A0D006CF1B4 /* LaunchScreen.xib */; };
+		D453512A1A522D310007073C /* AlarmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45351291A522D310007073C /* AlarmTests.swift */; };
+		D48E27601A523D4D001130D4 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01247C2D190C8B8200321DA4 /* Alarm.swift */; };
+		D48E27611A523D64001130D4 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = D433D4301A4F711B00D3EC23 /* Day.swift */; };
+		D48E27621A523E2B001130D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4729C9171A31EC00DBCCBB /* AppDelegate.swift */; };
+		D49DF8A41A52516000192658 /* ScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01599488191334510032C96B /* ScheduleTableViewController.swift */; };
+		D49DF8A51A52516000192658 /* AlarmDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AD705E1911CEC0001AD8C9 /* AlarmDetailTableViewController.swift */; };
+		D49DF8A61A52516000192658 /* AlarmsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01247C2A190C834000321DA4 /* AlarmsTableViewController.swift */; };
+		D49DF8A71A52516000192658 /* AlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01247C44190DBCE700321DA4 /* AlarmTableViewCell.swift */; };
+		D49DF8A81A52516000192658 /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF02B9A171ADC790006A153 /* ColorViewController.swift */; };
+		D49DF8A91A52516000192658 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01551F1818E90D5F00174CA9 /* OptionsViewController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D453512B1A522D310007073C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1B4729AE171A31EB00DBCCBB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1B4729B5171A31EB00DBCCBB;
+			remoteInfo = Tick;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		01039F5918D566910023F2B9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = SOURCE_ROOT; };
-		01247C29190C834000321DA4 /* TICKAlarmsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TICKAlarmsTableViewController.h; sourceTree = "<group>"; };
-		01247C2A190C834000321DA4 /* TICKAlarmsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TICKAlarmsTableViewController.m; sourceTree = "<group>"; };
-		01247C2C190C8B8200321DA4 /* TICKAlarm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TICKAlarm.h; sourceTree = "<group>"; };
-		01247C2D190C8B8200321DA4 /* TICKAlarm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TICKAlarm.m; sourceTree = "<group>"; };
-		01247C30190D641200321DA4 /* TICKTock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TICKTock.h; sourceTree = "<group>"; };
-		01247C31190D641200321DA4 /* TICKTock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TICKTock.m; sourceTree = "<group>"; };
+		01247C2A190C834000321DA4 /* AlarmsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmsTableViewController.swift; sourceTree = "<group>"; };
+		01247C2D190C8B8200321DA4 /* Alarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
+		01247C31190D641200321DA4 /* TockManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TockManager.swift; sourceTree = "<group>"; };
 		01247C33190D8CC600321DA4 /* alarms@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alarms@2x.png"; sourceTree = "<group>"; };
 		01247C34190D8CC600321DA4 /* alarms-fill@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alarms-fill@2x.png"; sourceTree = "<group>"; };
-		01247C37190D8E8100321DA4 /* TICKTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TICKTabBarViewController.h; sourceTree = "<group>"; };
-		01247C38190D8E8100321DA4 /* TICKTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TICKTabBarViewController.m; sourceTree = "<group>"; };
+		01247C38190D8E8100321DA4 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		01247C3B190DB66500321DA4 /* options-fill@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "options-fill@2x.png"; sourceTree = "<group>"; };
 		01247C3C190DB66500321DA4 /* options@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "options@2x.png"; sourceTree = "<group>"; };
 		01247C3D190DB66500321DA4 /* color-fill@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "color-fill@2x.png"; sourceTree = "<group>"; };
 		01247C3E190DB66500321DA4 /* color@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "color@2x.png"; sourceTree = "<group>"; };
-		01247C43190DBCE700321DA4 /* TICKAlarmTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TICKAlarmTableViewCell.h; sourceTree = "<group>"; };
-		01247C44190DBCE700321DA4 /* TICKAlarmTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TICKAlarmTableViewCell.m; sourceTree = "<group>"; };
-		01551F1718E90D5F00174CA9 /* TICKDisplayOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TICKDisplayOptionsViewController.h; sourceTree = "<group>"; };
-		01551F1818E90D5F00174CA9 /* TICKDisplayOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TICKDisplayOptionsViewController.m; sourceTree = "<group>"; };
-		01551F1A18E90E4600174CA9 /* TICKDebugConsoleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TICKDebugConsoleViewController.h; sourceTree = "<group>"; };
-		01551F1B18E90E4600174CA9 /* TICKDebugConsoleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TICKDebugConsoleViewController.m; sourceTree = "<group>"; };
-		01599487191334510032C96B /* TICKRepeatDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TICKRepeatDetailTableViewController.h; sourceTree = "<group>"; };
-		01599488191334510032C96B /* TICKRepeatDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TICKRepeatDetailTableViewController.m; sourceTree = "<group>"; };
-		0161BBD319291E3C0033F93C /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
-		0161BBD419291E3C0033F93C /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
-		0161BBD6192948870033F93C /* TICKInfoViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TICKInfoViewViewController.h; path = Classes/TICKInfoViewViewController.h; sourceTree = "<group>"; };
-		0161BBD7192948870033F93C /* TICKInfoViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TICKInfoViewViewController.m; path = Classes/TICKInfoViewViewController.m; sourceTree = "<group>"; };
-		01AD705D1911CEC0001AD8C9 /* TICKAlarmDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TICKAlarmDetailTableViewController.h; sourceTree = "<group>"; };
-		01AD705E1911CEC0001AD8C9 /* TICKAlarmDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TICKAlarmDetailTableViewController.m; sourceTree = "<group>"; };
+		01247C44190DBCE700321DA4 /* AlarmTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmTableViewCell.swift; sourceTree = "<group>"; };
+		01551F1818E90D5F00174CA9 /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
+		01599488191334510032C96B /* ScheduleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewController.swift; sourceTree = "<group>"; };
+		0161BBD7192948870033F93C /* InfoViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InfoViewViewController.swift; path = Classes/InfoViewViewController.swift; sourceTree = "<group>"; };
+		01AD705E1911CEC0001AD8C9 /* AlarmDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmDetailTableViewController.swift; sourceTree = "<group>"; };
 		1B4729B6171A31EB00DBCCBB /* Tick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tick.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B4729C1171A31EC00DBCCBB /* Clock-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Clock-Info.plist"; sourceTree = "<group>"; };
 		1B4729C3171A31EC00DBCCBB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		1B4729C5171A31EC00DBCCBB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		1B4729C7171A31EC00DBCCBB /* Clock-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Clock-Prefix.pch"; sourceTree = "<group>"; };
-		1B4729C8171A31EC00DBCCBB /* TICKAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TICKAppDelegate.h; sourceTree = "<group>"; };
-		1B4729C9171A31EC00DBCCBB /* TICKAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TICKAppDelegate.m; sourceTree = "<group>"; };
-		1B4729D2171A31EC00DBCCBB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		1B4729E0171A325400DBCCBB /* BlueShield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueShield.h; sourceTree = "<group>"; };
-		1B4729E1171A325400DBCCBB /* BlueShield.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueShield.m; sourceTree = "<group>"; };
-		1B4729E5171A365200DBCCBB /* BSDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSDefines.h; sourceTree = "<group>"; };
-		1BF02B99171ADC790006A153 /* TICKColorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TICKColorViewController.h; sourceTree = "<group>"; };
-		1BF02B9A171ADC790006A153 /* TICKColorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TICKColorViewController.m; sourceTree = "<group>"; };
+		1B4729C9171A31EC00DBCCBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1B4729D2171A31EC00DBCCBB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		1BF02B9A171ADC790006A153 /* ColorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorViewController.swift; sourceTree = "<group>"; };
+		D425EACE1A4E3C07004B6B1F /* NRFManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NRFManager.swift; sourceTree = "<group>"; };
+		D433D4301A4F711B00D3EC23 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		D43CEE8E1A478A0D006CF1B4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = Classes/en.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		D45351251A522D300007073C /* TickTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TickTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D45351281A522D310007073C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D45351291A522D310007073C /* AlarmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		1B4729B3171A31EB00DBCCBB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D45351221A522D300007073C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -92,16 +92,12 @@
 		01247C3A190D93C300321DA4 /* Alarms */ = {
 			isa = PBXGroup;
 			children = (
-				01599487191334510032C96B /* TICKRepeatDetailTableViewController.h */,
-				01599488191334510032C96B /* TICKRepeatDetailTableViewController.m */,
-				01247C2C190C8B8200321DA4 /* TICKAlarm.h */,
-				01247C2D190C8B8200321DA4 /* TICKAlarm.m */,
-				01AD705D1911CEC0001AD8C9 /* TICKAlarmDetailTableViewController.h */,
-				01AD705E1911CEC0001AD8C9 /* TICKAlarmDetailTableViewController.m */,
-				01247C29190C834000321DA4 /* TICKAlarmsTableViewController.h */,
-				01247C2A190C834000321DA4 /* TICKAlarmsTableViewController.m */,
-				01247C43190DBCE700321DA4 /* TICKAlarmTableViewCell.h */,
-				01247C44190DBCE700321DA4 /* TICKAlarmTableViewCell.m */,
+				01599488191334510032C96B /* ScheduleTableViewController.swift */,
+				01247C2D190C8B8200321DA4 /* Alarm.swift */,
+				01AD705E1911CEC0001AD8C9 /* AlarmDetailTableViewController.swift */,
+				01247C2A190C834000321DA4 /* AlarmsTableViewController.swift */,
+				01247C44190DBCE700321DA4 /* AlarmTableViewCell.swift */,
+				D433D4301A4F711B00D3EC23 /* Day.swift */,
 			);
 			name = Alarms;
 			sourceTree = "<group>";
@@ -123,12 +119,13 @@
 		1B4729AD171A31EB00DBCCBB = {
 			isa = PBXGroup;
 			children = (
-				1B4729D1171A31EC00DBCCBB /* MainStoryboard_iPhone.storyboard */,
-				0161BBD6192948870033F93C /* TICKInfoViewViewController.h */,
-				0161BBD7192948870033F93C /* TICKInfoViewViewController.m */,
+				D43CEE8D1A478A0D006CF1B4 /* LaunchScreen.xib */,
+				1B4729D1171A31EC00DBCCBB /* MainStoryboard.storyboard */,
+				0161BBD7192948870033F93C /* InfoViewViewController.swift */,
 				1B4729C0171A31EC00DBCCBB /* Supporting Files */,
 				1BF02B94171ADBCC0006A153 /* Library */,
 				1B4729BF171A31EC00DBCCBB /* Classes */,
+				D45351261A522D310007073C /* Tick Tests */,
 				1B4729B7171A31EB00DBCCBB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -137,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				1B4729B6171A31EB00DBCCBB /* Tick.app */,
+				D45351251A522D300007073C /* TickTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -145,16 +143,10 @@
 			isa = PBXGroup;
 			children = (
 				01247C3A190D93C300321DA4 /* Alarms */,
-				1B4729C8171A31EC00DBCCBB /* TICKAppDelegate.h */,
-				1B4729C9171A31EC00DBCCBB /* TICKAppDelegate.m */,
-				1BF02B99171ADC790006A153 /* TICKColorViewController.h */,
-				1BF02B9A171ADC790006A153 /* TICKColorViewController.m */,
-				01551F1A18E90E4600174CA9 /* TICKDebugConsoleViewController.h */,
-				01551F1B18E90E4600174CA9 /* TICKDebugConsoleViewController.m */,
-				01551F1718E90D5F00174CA9 /* TICKDisplayOptionsViewController.h */,
-				01551F1818E90D5F00174CA9 /* TICKDisplayOptionsViewController.m */,
-				01247C37190D8E8100321DA4 /* TICKTabBarViewController.h */,
-				01247C38190D8E8100321DA4 /* TICKTabBarViewController.m */,
+				1B4729C9171A31EC00DBCCBB /* AppDelegate.swift */,
+				1BF02B9A171ADC790006A153 /* ColorViewController.swift */,
+				01551F1818E90D5F00174CA9 /* OptionsViewController.swift */,
+				01247C38190D8E8100321DA4 /* TabBarViewController.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -165,8 +157,6 @@
 				01247C46190DC13C00321DA4 /* Images */,
 				1B4729C1171A31EC00DBCCBB /* Clock-Info.plist */,
 				1B4729C2171A31EC00DBCCBB /* InfoPlist.strings */,
-				1B4729C5171A31EC00DBCCBB /* main.m */,
-				1B4729C7171A31EC00DBCCBB /* Clock-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			path = Classes;
@@ -175,11 +165,8 @@
 		1B4729DF171A323300DBCCBB /* BlueShield */ = {
 			isa = PBXGroup;
 			children = (
-				1B4729E0171A325400DBCCBB /* BlueShield.h */,
-				1B4729E1171A325400DBCCBB /* BlueShield.m */,
-				01247C30190D641200321DA4 /* TICKTock.h */,
-				01247C31190D641200321DA4 /* TICKTock.m */,
-				1B4729E5171A365200DBCCBB /* BSDefines.h */,
+				D425EACE1A4E3C07004B6B1F /* NRFManager.swift */,
+				01247C31190D641200321DA4 /* TockManager.swift */,
 			);
 			name = BlueShield;
 			sourceTree = "<group>";
@@ -187,12 +174,27 @@
 		1BF02B94171ADBCC0006A153 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				0161BBD319291E3C0033F93C /* MBProgressHUD.h */,
-				0161BBD419291E3C0033F93C /* MBProgressHUD.m */,
 				1B4729DF171A323300DBCCBB /* BlueShield */,
 			);
 			name = Library;
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		D45351261A522D310007073C /* Tick Tests */ = {
+			isa = PBXGroup;
+			children = (
+				D45351291A522D310007073C /* AlarmTests.swift */,
+				D45351271A522D310007073C /* Supporting Files */,
+			);
+			path = "Tick Tests";
+			sourceTree = "<group>";
+		};
+		D45351271A522D310007073C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D45351281A522D310007073C /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,18 +217,40 @@
 			productReference = 1B4729B6171A31EB00DBCCBB /* Tick.app */;
 			productType = "com.apple.product-type.application";
 		};
+		D45351241A522D300007073C /* TickTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D453512F1A522D310007073C /* Build configuration list for PBXNativeTarget "TickTests" */;
+			buildPhases = (
+				D45351211A522D300007073C /* Sources */,
+				D45351221A522D300007073C /* Frameworks */,
+				D45351231A522D300007073C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D453512C1A522D310007073C /* PBXTargetDependency */,
+			);
+			name = TickTests;
+			productName = "Tick Tests";
+			productReference = D45351251A522D300007073C /* TickTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		1B4729AE171A31EB00DBCCBB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = TICK;
+				CLASSPREFIX = "";
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Nick Walker";
 				TargetAttributes = {
 					1B4729B5171A31EB00DBCCBB = {
 						DevelopmentTeam = 2627WG76ES;
+					};
+					D45351241A522D300007073C = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = 1B4729B5171A31EB00DBCCBB;
 					};
 				};
 			};
@@ -243,6 +267,7 @@
 			projectRoot = "";
 			targets = (
 				1B4729B5171A31EB00DBCCBB /* Tick */,
+				D45351241A522D300007073C /* TickTests */,
 			);
 		};
 /* End PBXProject section */
@@ -252,15 +277,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01247C42190DB66500321DA4 /* color@2x.png in Resources */,
+				D43CEE8F1A478A0D006CF1B4 /* LaunchScreen.xib in Resources */,
 				01247C36190D8CC600321DA4 /* alarms-fill@2x.png in Resources */,
 				01247C3F190DB66500321DA4 /* options-fill@2x.png in Resources */,
 				01247C40190DB66500321DA4 /* options@2x.png in Resources */,
-				01247C2F190CAEDC00321DA4 /* MainStoryboard_iPhone.storyboard in Resources */,
-				01247C41190DB66500321DA4 /* color-fill@2x.png in Resources */,
+				01247C2F190CAEDC00321DA4 /* MainStoryboard.storyboard in Resources */,
 				1B4729C4171A31EC00DBCCBB /* InfoPlist.strings in Resources */,
 				01247C35190D8CC600321DA4 /* alarms@2x.png in Resources */,
 				01039F5A18D566910023F2B9 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D45351231A522D300007073C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,25 +302,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				010C813218E902BD007C8353 /* TICKColorViewController.m in Sources */,
-				1B4729C6171A31EC00DBCCBB /* main.m in Sources */,
-				01247C32190D641200321DA4 /* TICKTock.m in Sources */,
-				0161BBD8192948870033F93C /* TICKInfoViewViewController.m in Sources */,
-				01247C45190DBCE700321DA4 /* TICKAlarmTableViewCell.m in Sources */,
-				1B4729CA171A31EC00DBCCBB /* TICKAppDelegate.m in Sources */,
-				01247C2B190C834000321DA4 /* TICKAlarmsTableViewController.m in Sources */,
-				01AD705F1911CEC0001AD8C9 /* TICKAlarmDetailTableViewController.m in Sources */,
-				01551F1918E90D5F00174CA9 /* TICKDisplayOptionsViewController.m in Sources */,
-				1B4729E2171A325400DBCCBB /* BlueShield.m in Sources */,
-				01599489191334510032C96B /* TICKRepeatDetailTableViewController.m in Sources */,
-				01247C39190D8E8100321DA4 /* TICKTabBarViewController.m in Sources */,
-				01247C2E190C8B8200321DA4 /* TICKAlarm.m in Sources */,
-				01551F1C18E90E4600174CA9 /* TICKDebugConsoleViewController.m in Sources */,
-				0161BBD519291E3C0033F93C /* MBProgressHUD.m in Sources */,
+				D49DF8A41A52516000192658 /* ScheduleTableViewController.swift in Sources */,
+				D49DF8A91A52516000192658 /* OptionsViewController.swift in Sources */,
+				D49DF8A61A52516000192658 /* AlarmsTableViewController.swift in Sources */,
+				D48E27621A523E2B001130D4 /* AppDelegate.swift in Sources */,
+				D438ED441A527CBB0076F078 /* TabBarViewController.swift in Sources */,
+				01247C32190D641200321DA4 /* TockManager.swift in Sources */,
+				D49DF8A51A52516000192658 /* AlarmDetailTableViewController.swift in Sources */,
+				D48E27611A523D64001130D4 /* Day.swift in Sources */,
+				D425EACF1A4E3C07004B6B1F /* NRFManager.swift in Sources */,
+				D48E27601A523D4D001130D4 /* Alarm.swift in Sources */,
+				D49DF8A81A52516000192658 /* ColorViewController.swift in Sources */,
+				D49DF8A71A52516000192658 /* AlarmTableViewCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D45351211A522D300007073C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D453512A1A522D310007073C /* AlarmTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D453512C1A522D310007073C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1B4729B5171A31EB00DBCCBB /* Tick */;
+			targetProxy = D453512B1A522D310007073C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		1B4729C2171A31EC00DBCCBB /* InfoPlist.strings */ = {
@@ -300,13 +344,21 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		1B4729D1171A31EC00DBCCBB /* MainStoryboard_iPhone.storyboard */ = {
+		1B4729D1171A31EC00DBCCBB /* MainStoryboard.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				1B4729D2171A31EC00DBCCBB /* en */,
 			);
-			name = MainStoryboard_iPhone.storyboard;
+			name = MainStoryboard.storyboard;
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		D43CEE8D1A478A0D006CF1B4 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D43CEE8E1A478A0D006CF1B4 /* en */,
+			);
+			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -326,6 +378,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -337,7 +390,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -358,11 +411,12 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -377,12 +431,16 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "Classes/Clock-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$inherited @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = Tick;
-				PROVISIONING_PROFILE = "ACFC0F36-5D6B-4B09-B637-B720C7960EF9";
+				PROVISIONING_PROFILE = "";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
@@ -396,15 +454,82 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "Classes/Clock-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$inherited @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = Tick;
-				PROVISIONING_PROFILE = "DC0ED2D2-447C-455F-942D-4AC383C35E74";
+				PROVISIONING_PROFILE = "";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		D453512D1A522D310007073C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "Tick Tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tick.app/Tick";
+			};
+			name = Debug;
+		};
+		D453512E1A522D310007073C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "Tick Tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tick.app/Tick";
 			};
 			name = Release;
 		};
@@ -425,6 +550,15 @@
 			buildConfigurations = (
 				1B4729DD171A31EC00DBCCBB /* Debug */,
 				1B4729DE171A31EC00DBCCBB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D453512F1A522D310007073C /* Build configuration list for PBXNativeTarget "TickTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D453512D1A522D310007073C /* Debug */,
+				D453512E1A522D310007073C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
