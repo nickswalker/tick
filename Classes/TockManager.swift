@@ -1,69 +1,85 @@
 import UIKit
 import Foundation
 
-class TockManager: NRFManager {
-    private var alarms = [Alarm](count: 10, repeatedValue: Alarm(binary: 0))
-    private var settings = [Option: UInt8]()
+@objc public class TockManager: NRFManagerDelegate {
+    struct ClassMembers {
+        static var alarms = [Alarm](count: 10, repeatedValue: Alarm(binary: 0))
+        static var settings = [Option: UInt8]()
+    }
 
     enum Command: UInt8 {
-        case SETDATE = 1,
-        SETTIME = 2,
-        SETLIGHTCOLOR = 3,
-        GETLIGHTCOLOR = 4,
-        SETALARM = 5,
-        GETALARM = 6,
-        SETSETTING = 7,
-        GETSETTING = 8,
-        RESET = 254,
-        TESTCONNECTION = 255
+        case SetTime = 1,
+        SetLightColor = 2,
+        GetLightColor = 3,
+        SetAlarm = 4,
+        GetAlarm = 5,
+        SetSetting = 6,
+        GetSetting = 7,
+        Reset = 254,
+        TestConnection = 255
     }
 
     enum Option: UInt8 {
-        case DISPLAYTWENTYFOURHOURTIME = 1,
-        BLINKCOLON = 2,
-        LOUDERALARM = 3,
-        AUTOBRIGHTNESS = 4,
-        BRIGHTNESS = 5
+        case DisplayTwentyFourHourTime = 1,
+        BlinkColon = 2,
+        AutoBrightness = 3,
+        Brightness = 4
+
+        static let allValues: [Option] = [.DisplayTwentyFourHourTime, .BlinkColon, .AutoBrightness, .Brightness]
     }
 
-    init() {
-
+    class func searchForTock(){
+        NRFManager.sharedInstance.autoConnect = true
+        NRFManager.sharedInstance.connect()
+        var contentView = HUDContentView.ProgressView()
+        HUDController.sharedController.contentView = contentView
+        HUDController.sharedController.show()
+        HUDController.sharedController.dimsBackground = true
     }
 
-    func attachToTock(){
+    class func detachFromTock(){
+        NRFManager.sharedInstance.disconnect()
+        NRFManager.sharedInstance.autoConnect = false
+    }
 
-        //Search the peripherals array for the one that matches what we want
-    
+    public func nrfReceivedData(nrfManager: NRFManager, data: NSData?, string: String?) {
+        var messageBytes = [UInt8](count: data!.length, repeatedValue: 0)
+        data!.getBytes(&messageBytes, length: data!.length)
+
+        TockManager.processCommand(messageBytes)
+    }
+    public func nrfDidConnect(nrfManager: NRFManager) {
         //Connect peripheral, sync time, get settings
-
+        HUDController.sharedController.hide(afterDelay: 4.0)
+        TockManager.syncDateTime()
+        TockManager.fetchAllSettings()
+        TockManager.fetchAlarms()
     }
-    func detachFromTock(){
-        //self.cm.cancelPeripheralConnection(self.activePeripheral);
+    public func nrfDidDisconnect(nrfManager: NRFManager) {
+        //nop
     }
 
-    private func processCommand(message: NSData){
-        var messageBytes = [UInt8](count: message.length, repeatedValue: 0)
-        message.getBytes(&messageBytes, length: message.length)
+    private class func processCommand(message: [UInt8]){
+        switch Command(rawValue: message[0])!  {
+            case .GetAlarm:
+                let alarm = TockManager.bytesToInt([message[2], message[3], message[4], message[5]])
+                let alarmNumber = message[1]
+                ClassMembers.alarms[Int(alarmNumber)] = Alarm(binary: alarm)
 
-        for var i = 0; i < message.length ; i++ {
-            print("\(i): \(messageBytes[i])");
-        }
-        switch Command(rawValue: messageBytes[0])!  {
-            case .GETALARM:
-                let alarm = TockManager.bytesToInt([messageBytes[0], messageBytes[1], messageBytes[2], messageBytes[3]])
-                let alarmNumber = messageBytes[1]
-                alarms[Int(alarmNumber)] = Alarm(binary: alarm)
-
-            case .GETSETTING:
-                let option = Option(rawValue: messageBytes[1])!
-                let value = messageBytes[2]
-                settings[option] = value
+            case .GetSetting:
+                let option = Option(rawValue: message[1])
+                if option != nil{
+                let value = message[2]
+                ClassMembers.settings[option!] = value
+                } else {
+                    println("Recieved incorect option code")
+            }
             default:
                 print("Recieved other command")
         }
     }
 
-    func syncDateTime(){
+    private class func syncDateTime(){
         //In GMT
         let currentDate = NSDate()
 
@@ -72,20 +88,25 @@ class TockManager: NRFManager {
         let timeZone = NSTimeZone.systemTimeZone()
         timeInterval = timeInterval.advancedBy(Double(timeZone.secondsFromGMT))
         //Now in iPhone-local time zone/DST
-        let intTime: UInt32 = UInt32(timeInterval)
-        let bytes = TockManager.intToBytes(intTime)
-        let message: [UInt8] = [Command.SETTIME.rawValue, bytes[0], bytes[1], bytes[2], bytes[4]]
+
+        let test = UInt32(timeInterval)
+        let bytes = TockManager.intToBytes(test)
+        let message: [UInt8] = [Command.SetTime.rawValue, bytes[0], bytes[1], bytes[2], bytes[3]]
         sendBytes(message)
     }
 
-    func resetToDefaults(){
-        let message: [UInt8] = [Command.RESET.rawValue]
-        //[self sendBytes:message size:sizeof(message)];
+    class func resetToDefaults(){
+        let message: [UInt8] = [Command.Reset.rawValue]
+        sendBytes(message)
     }
 
-    func numberOfAlarms()-> Int {
+    class func sendMessage(message: [UInt8]){
+        sendBytes(message)
+    }
+
+    class func numberOfAlarms()-> Int {
         var number = 0;
-        for alarm in alarms {
+        for alarm in ClassMembers.alarms {
             if alarm.binaryRepresentation != 0 {
                 number++
             }
@@ -93,11 +114,11 @@ class TockManager: NRFManager {
         return number
     }
 
-    func emptyAlarmNumber()-> Int {
+    class func emptyAlarmNumber()-> Int {
         for var i = 0; i < 10; i++ {
-            let alarm = alarms[i]
+            let alarm = ClassMembers.alarms[i]
             if alarm.binaryRepresentation == 0 {
-                return i;
+                return i
             }
         }
         return 9;
@@ -105,69 +126,66 @@ class TockManager: NRFManager {
 
     //MARK: Message Senders
 
-    private func sendText(string:String) {
-        let data = string.dataUsingEncoding(NSUTF8StringEncoding)
-
+    private class func sendText(string:String) {
+        NRFManager.sharedInstance.writeString(string)
     }
 
-    private func sendBytes(bytes: [UInt8]){
-        for var i = 0; i < bytes.count; i++ {
-            print()
-        }
+    private class func sendBytes(bytes: [UInt8]){
         let data = NSData(bytes: bytes, length: bytes.count)
+        NRFManager.sharedInstance.writeData(data)
     }
 
-    private func sendSetting(option: Option, value: UInt8){
-        let message: [UInt8] = [Command.SETSETTING.rawValue, option.rawValue, value]
+    private class func sendSetting(option: Option, value: UInt8){
+        let message: [UInt8] = [Command.SetSetting.rawValue, option.rawValue, value]
         sendBytes(message)
     }
 
-    private func sendColor(r: UInt8, g: UInt8, b: UInt8) {
-        let message: [UInt8] = [Command.SETLIGHTCOLOR.rawValue, r, g, b]
+    private class func sendColor(r: UInt8, g: UInt8, b: UInt8) {
+        let message: [UInt8] = [Command.SetLightColor.rawValue, r, g, b]
         sendBytes(message)
     }
 
-    private func sendAlarm(alarm: Alarm, number: UInt8){
-        print(alarm)
+    private class func sendAlarm(alarm: Alarm, number: Int){
         let bytes = TockManager.intToBytes(alarm.binaryRepresentation)
-        let message: [UInt8] = [Command.SETALARM.rawValue, number, bytes[0], bytes[1], bytes[2], bytes[3]]
+        let message: [UInt8] = [Command.SetAlarm.rawValue, UInt8(number), bytes[0], bytes[1], bytes[2], bytes[3]]
         sendBytes(message)
     }
 
-    private func testConnection(){
-        let message: [UInt8] = [Command.TESTCONNECTION.rawValue]
+    private class func testConnection(){
+        let message: [UInt8] = [Command.TestConnection.rawValue]
         sendBytes(message)
     }
 
-    private func fetchAllSettings(){
-        for var i: UInt8 = 0; i < 5; i++ {
-            fetchSetting(Option(rawValue: i)!)
+    private class func fetchAllSettings(){
+        for setting in Option.allValues {
+            fetchSetting(setting)
         }
     }
 
-    private func fetchSetting(option: Option){
-        let message: [UInt8] = [Command.GETSETTING.rawValue, option.rawValue]
+    private class func fetchSetting(option: Option){
+        let message: [UInt8] = [Command.GetSetting.rawValue, option.rawValue]
         sendBytes(message)
     }
 
-    private func fetchAlarm(alarmNumber: Int){
-        let message: [UInt8]  = [Command.GETALARM.rawValue, UInt8(alarmNumber)];
+    private class func fetchAlarm(alarmNumber: Int){
+        let message: [UInt8]  = [Command.GetAlarm.rawValue, UInt8(alarmNumber)];
         sendBytes(message)
     }
 
-    private func fetchAlarms(){
+    private class func fetchAlarms(){
         for var i = 1; i < 9; i++ {
             fetchAlarm(i)
         }
     }
 
     //MARK: Public
-    func setSetting(option:Option, value: UInt8) {
-        settings[option] = value
+    class func setSetting(option:Option, value: UInt8) {
+        ClassMembers.settings[option] = value
+        sendSetting(option, value: value)
     }
 
-    func setting(option: Option)-> UInt8 {
-        let value = settings[option]
+    class func setting(option: Option)-> UInt8 {
+        let value = ClassMembers.settings[option]
         if value == nil {
             return 0
         }
@@ -176,29 +194,32 @@ class TockManager: NRFManager {
         }
     }
 
-    func clearAlarm(number: Int){
+    class func clearAlarm(number: Int){
         let emptyAlarm = Alarm(binary: 0)
-        alarms[number] = emptyAlarm
+        ClassMembers.alarms[number] = emptyAlarm
+        sendAlarm(emptyAlarm, number: number)
     }
 
-    func setAlarm(number: Int, alarm: Alarm)  {
-        alarms[number] = alarm
+    class func setAlarm(number: Int, alarm: Alarm)  {
+        ClassMembers.alarms[number] = alarm
+        sendAlarm(alarm, number: number)
     }
 
-    func alarm(number: Int)-> Alarm {
-        return alarms[number]
+    class func alarm(number: Int)-> Alarm {
+        return ClassMembers.alarms[number]
     }
 
     //MARK: Helpers
     //Little endian: Least significant byte first
     private class func intToBytes(binary: UInt32)-> [UInt8] {
         var returnValue = [UInt8](count: 4, repeatedValue: 0)
-        returnValue[0] = UInt8((binary >> 0));
-        returnValue[1] = UInt8((binary >> 8));
-        returnValue[2] = UInt8((binary >> 16));
-        returnValue[3] = UInt8((binary >> 24));
+        returnValue[0] = UInt8(binary & 0xFF)
+        returnValue[1] = UInt8((binary & 0xFF00) >> 8)
+        returnValue[2] = UInt8((binary & 0xFF0000) >> 16)
+        returnValue[3] = UInt8((binary & 0xFF000000) >> 24)
         return returnValue
     }
+
     private class func bytesToInt(bytes: [UInt8])-> UInt32 {
         var returnValue: UInt32 = UInt32(bytes[0])
         returnValue += (UInt32(bytes[1]) << 8)

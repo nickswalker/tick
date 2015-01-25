@@ -30,7 +30,7 @@ public enum ConnectionStatus {
 */
 
 // Mark: NRFManager Initialization
-public class NRFManager:NSObject, CBCentralManagerDelegate, UARTPeripheralDelegate {
+public class NRFManager:NSObject, CBCentralManagerDelegate, UARTPeripheralDelegate, TrickleQueueDelegate {
     
 
     //Private Properties
@@ -42,7 +42,9 @@ public class NRFManager:NSObject, CBCentralManagerDelegate, UARTPeripheralDelega
             }
         }
     }
-    
+    private var dataQueue = TrickleQueue()
+
+
     //Public Properties
     public var verbose = false
     public var autoConnect = true
@@ -66,21 +68,19 @@ public class NRFManager:NSObject, CBCentralManagerDelegate, UARTPeripheralDelega
                     default:
 
                         disconnectionCallback?()
-                        delegate?.nrfDidDisconnect?(self)
+                        //delegate?.nrfDidDisconnect?(self)
                 }
             }
         }
     }
+    
+    struct Static {
+        static let instance : NRFManager = NRFManager()
+    }
 
-
-    
-    
-    
 
     public class var sharedInstance : NRFManager {
-        struct Static {
-            static let instance : NRFManager = NRFManager()
-        }
+
         return Static.instance
     }
  
@@ -91,6 +91,7 @@ public class NRFManager:NSObject, CBCentralManagerDelegate, UARTPeripheralDelega
         autoConnect:Bool = true)
     {
         super.init()
+        dataQueue.delegate = self
         self.delegate = delegate
         self.autoConnect = autoConnect
         bluetoothManager = CBCentralManager(delegate: self, queue: nil)
@@ -141,6 +142,9 @@ extension NRFManager {
             println("NRFManager: \(logMessage)")
         }
     }
+    public func processQueuedData(data: NSData){
+        currentPeripheral!.writeRawData(data)
+    }
 }
 
 // MARK: - Public Methods
@@ -182,7 +186,7 @@ extension NRFManager {
     {
         if let currentPeripheral = self.currentPeripheral {
             if connectionStatus == .Connected {
-                currentPeripheral.writeRawData(data)
+                dataQueue.add(data)
                 return true
             }
         }
@@ -260,13 +264,11 @@ extension NRFManager {
     public func didReceiveData(newData:NSData)
     {
         if connectionStatus == .Connected || connectionStatus == .Scanning {
-            log("Data: \(newData)");
             
             let string = NSString(data: newData, encoding:NSUTF8StringEncoding)
-            log("String: \(string)")
             
-            dataCallback?(data: newData, string: string!)
-            delegate?.nrfReceivedData?(self, data:newData, string: string!)
+            dataCallback?(data: newData, string: string?)
+            delegate?.nrfReceivedData?(self, data:newData, string: string?)
             
         }
     }

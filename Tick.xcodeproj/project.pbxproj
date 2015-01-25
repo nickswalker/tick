@@ -18,7 +18,7 @@
 		D425EACF1A4E3C07004B6B1F /* NRFManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D425EACE1A4E3C07004B6B1F /* NRFManager.swift */; };
 		D438ED441A527CBB0076F078 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01247C38190D8E8100321DA4 /* TabBarViewController.swift */; };
 		D43CEE8F1A478A0D006CF1B4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D43CEE8D1A478A0D006CF1B4 /* LaunchScreen.xib */; };
-		D453512A1A522D310007073C /* AlarmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45351291A522D310007073C /* AlarmTests.swift */; };
+		D47849221A7419BF004B4149 /* TrickleQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D478491F1A741893004B4149 /* TrickleQueue.swift */; };
 		D48E27601A523D4D001130D4 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01247C2D190C8B8200321DA4 /* Alarm.swift */; };
 		D48E27611A523D64001130D4 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = D433D4301A4F711B00D3EC23 /* Day.swift */; };
 		D48E27621A523E2B001130D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4729C9171A31EC00DBCCBB /* AppDelegate.swift */; };
@@ -28,6 +28,17 @@
 		D49DF8A71A52516000192658 /* AlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01247C44190DBCE700321DA4 /* AlarmTableViewCell.swift */; };
 		D49DF8A81A52516000192658 /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF02B9A171ADC790006A153 /* ColorViewController.swift */; };
 		D49DF8A91A52516000192658 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01551F1818E90D5F00174CA9 /* OptionsViewController.swift */; };
+		D4C1CDDF1A74C30B009F5CF2 /* DebugConsoleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C1CDDD1A74C26A009F5CF2 /* DebugConsoleViewController.swift */; };
+		D4E7E9A01A74AFF70028D9A6 /* PKHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4FBEF7F1A733C0B00965D61 /* PKHUD.framework */; };
+		D4E7E9A11A74AFF70028D9A6 /* PKHUD.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D4FBEF7F1A733C0B00965D61 /* PKHUD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D4E7E9B11A74B02F0028D9A6 /* HUDController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7E9A61A74B02F0028D9A6 /* HUDController.swift */; };
+		D4E7E9B21A74B02F0028D9A6 /* HUDAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7E9A71A74B02F0028D9A6 /* HUDAssets.swift */; };
+		D4E7E9B31A74B02F0028D9A6 /* HUDContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7E9A81A74B02F0028D9A6 /* HUDContentView.swift */; };
+		D4E7E9B41A74B02F0028D9A6 /* FrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7E9A91A74B02F0028D9A6 /* FrameView.swift */; };
+		D4E7E9B51A74B02F0028D9A6 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7E9AA1A74B02F0028D9A6 /* Window.swift */; };
+		D4E7E9B61A74B02F0028D9A6 /* WindowRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7E9AB1A74B02F0028D9A6 /* WindowRootViewController.swift */; };
+		D4E7E9B71A74B02F0028D9A6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4E7E9AD1A74B02F0028D9A6 /* Images.xcassets */; };
+		D4E7E9B81A74B02F0028D9A6 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4E7E9AE1A74B02F0028D9A6 /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +49,42 @@
 			remoteGlobalIDString = 1B4729B5171A31EB00DBCCBB;
 			remoteInfo = Tick;
 		};
+		D4E7E9A21A74AFF70028D9A6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4FBEF771A733C0B00965D61 /* PKHUD.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F996321D19514FD8001F73CA;
+			remoteInfo = PKHUD;
+		};
+		D4FBEF7C1A733C0B00965D61 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4FBEF771A733C0B00965D61 /* PKHUD.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F99631FC19514FAC001F73CA;
+			remoteInfo = "PKHUD Demo";
+		};
+		D4FBEF7E1A733C0B00965D61 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4FBEF771A733C0B00965D61 /* PKHUD.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F996321E19514FD8001F73CA;
+			remoteInfo = PKHUD;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D4E7E9A41A74AFF70028D9A6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D4E7E9A11A74AFF70028D9A6 /* PKHUD.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		01039F5918D566910023F2B9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = SOURCE_ROOT; };
@@ -57,7 +103,7 @@
 		01599488191334510032C96B /* ScheduleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewController.swift; sourceTree = "<group>"; };
 		0161BBD7192948870033F93C /* InfoViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InfoViewViewController.swift; path = Classes/InfoViewViewController.swift; sourceTree = "<group>"; };
 		01AD705E1911CEC0001AD8C9 /* AlarmDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmDetailTableViewController.swift; sourceTree = "<group>"; };
-		1B4729B6171A31EB00DBCCBB /* Tick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tick.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B4729B6171A31EB00DBCCBB /* tick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tick.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B4729C1171A31EC00DBCCBB /* Clock-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Clock-Info.plist"; sourceTree = "<group>"; };
 		1B4729C3171A31EC00DBCCBB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1B4729C9171A31EC00DBCCBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +115,18 @@
 		D45351251A522D300007073C /* TickTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TickTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D45351281A522D310007073C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D45351291A522D310007073C /* AlarmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmTests.swift; sourceTree = "<group>"; };
+		D478491F1A741893004B4149 /* TrickleQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrickleQueue.swift; sourceTree = "<group>"; };
+		D4C1CDDD1A74C26A009F5CF2 /* DebugConsoleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugConsoleViewController.swift; sourceTree = "<group>"; };
+		D4E7E9A51A74B02F0028D9A6 /* PKHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKHUD.h; sourceTree = "<group>"; };
+		D4E7E9A61A74B02F0028D9A6 /* HUDController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDController.swift; sourceTree = "<group>"; };
+		D4E7E9A71A74B02F0028D9A6 /* HUDAssets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDAssets.swift; sourceTree = "<group>"; };
+		D4E7E9A81A74B02F0028D9A6 /* HUDContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDContentView.swift; sourceTree = "<group>"; };
+		D4E7E9A91A74B02F0028D9A6 /* FrameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameView.swift; sourceTree = "<group>"; };
+		D4E7E9AA1A74B02F0028D9A6 /* Window.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
+		D4E7E9AB1A74B02F0028D9A6 /* WindowRootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowRootViewController.swift; sourceTree = "<group>"; };
+		D4E7E9AD1A74B02F0028D9A6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D4E7E9AE1A74B02F0028D9A6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4FBEF771A733C0B00965D61 /* PKHUD.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PKHUD.xcodeproj; path = Vendor/PKHUD/PKHUD.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +134,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4E7E9A01A74AFF70028D9A6 /* PKHUD.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +178,8 @@
 		1B4729AD171A31EB00DBCCBB = {
 			isa = PBXGroup;
 			children = (
+				D4E7E9B01A74B02F0028D9A6 /* PKHUD */,
+				D4FBEF771A733C0B00965D61 /* PKHUD.xcodeproj */,
 				D43CEE8D1A478A0D006CF1B4 /* LaunchScreen.xib */,
 				1B4729D1171A31EC00DBCCBB /* MainStoryboard.storyboard */,
 				0161BBD7192948870033F93C /* InfoViewViewController.swift */,
@@ -133,7 +194,7 @@
 		1B4729B7171A31EB00DBCCBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1B4729B6171A31EB00DBCCBB /* Tick.app */,
+				1B4729B6171A31EB00DBCCBB /* tick.app */,
 				D45351251A522D300007073C /* TickTests.xctest */,
 			);
 			name = Products;
@@ -144,9 +205,10 @@
 			children = (
 				01247C3A190D93C300321DA4 /* Alarms */,
 				1B4729C9171A31EC00DBCCBB /* AppDelegate.swift */,
-				1BF02B9A171ADC790006A153 /* ColorViewController.swift */,
 				01551F1818E90D5F00174CA9 /* OptionsViewController.swift */,
+				1BF02B9A171ADC790006A153 /* ColorViewController.swift */,
 				01247C38190D8E8100321DA4 /* TabBarViewController.swift */,
+				D4C1CDDD1A74C26A009F5CF2 /* DebugConsoleViewController.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -167,6 +229,7 @@
 			children = (
 				D425EACE1A4E3C07004B6B1F /* NRFManager.swift */,
 				01247C31190D641200321DA4 /* TockManager.swift */,
+				D478491F1A741893004B4149 /* TrickleQueue.swift */,
 			);
 			name = BlueShield;
 			sourceTree = "<group>";
@@ -197,6 +260,48 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		D4E7E9AC1A74B02F0028D9A6 /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				D4E7E9A91A74B02F0028D9A6 /* FrameView.swift */,
+				D4E7E9AA1A74B02F0028D9A6 /* Window.swift */,
+				D4E7E9AB1A74B02F0028D9A6 /* WindowRootViewController.swift */,
+			);
+			name = Internal;
+			sourceTree = "<group>";
+		};
+		D4E7E9AF1A74B02F0028D9A6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D4E7E9AE1A74B02F0028D9A6 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D4E7E9B01A74B02F0028D9A6 /* PKHUD */ = {
+			isa = PBXGroup;
+			children = (
+				D4E7E9A51A74B02F0028D9A6 /* PKHUD.h */,
+				D4E7E9A61A74B02F0028D9A6 /* HUDController.swift */,
+				D4E7E9A71A74B02F0028D9A6 /* HUDAssets.swift */,
+				D4E7E9A81A74B02F0028D9A6 /* HUDContentView.swift */,
+				D4E7E9AC1A74B02F0028D9A6 /* Internal */,
+				D4E7E9AD1A74B02F0028D9A6 /* Images.xcassets */,
+				D4E7E9AF1A74B02F0028D9A6 /* Supporting Files */,
+			);
+			name = PKHUD;
+			path = Vendor/PKHUD/PKHUD;
+			sourceTree = "<group>";
+		};
+		D4FBEF781A733C0B00965D61 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D4FBEF7D1A733C0B00965D61 /* PKHUD Demo.app */,
+				D4FBEF7F1A733C0B00965D61 /* PKHUD.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -207,14 +312,17 @@
 				1B4729B2171A31EB00DBCCBB /* Sources */,
 				1B4729B3171A31EB00DBCCBB /* Frameworks */,
 				1B4729B4171A31EB00DBCCBB /* Resources */,
+				D4C2986D1A674AC500A87612 /* Bump Build Number */,
+				D4E7E9A41A74AFF70028D9A6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D4E7E9A31A74AFF70028D9A6 /* PBXTargetDependency */,
 			);
 			name = Tick;
 			productName = BlueShieldDemo;
-			productReference = 1B4729B6171A31EB00DBCCBB /* Tick.app */;
+			productReference = 1B4729B6171A31EB00DBCCBB /* tick.app */;
 			productType = "com.apple.product-type.application";
 		};
 		D45351241A522D300007073C /* TickTests */ = {
@@ -264,6 +372,12 @@
 			mainGroup = 1B4729AD171A31EB00DBCCBB;
 			productRefGroup = 1B4729B7171A31EB00DBCCBB /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = D4FBEF781A733C0B00965D61 /* Products */;
+					ProjectRef = D4FBEF771A733C0B00965D61 /* PKHUD.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				1B4729B5171A31EB00DBCCBB /* Tick */,
@@ -272,11 +386,29 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		D4FBEF7D1A733C0B00965D61 /* PKHUD Demo.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "PKHUD Demo.app";
+			remoteRef = D4FBEF7C1A733C0B00965D61 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D4FBEF7F1A733C0B00965D61 /* PKHUD.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = PKHUD.framework;
+			remoteRef = D4FBEF7E1A733C0B00965D61 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		1B4729B4171A31EB00DBCCBB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4E7E9B71A74B02F0028D9A6 /* Images.xcassets in Resources */,
 				D43CEE8F1A478A0D006CF1B4 /* LaunchScreen.xib in Resources */,
 				01247C36190D8CC600321DA4 /* alarms-fill@2x.png in Resources */,
 				01247C3F190DB66500321DA4 /* options-fill@2x.png in Resources */,
@@ -284,6 +416,7 @@
 				01247C2F190CAEDC00321DA4 /* MainStoryboard.storyboard in Resources */,
 				1B4729C4171A31EC00DBCCBB /* InfoPlist.strings in Resources */,
 				01247C35190D8CC600321DA4 /* alarms@2x.png in Resources */,
+				D4E7E9B81A74B02F0028D9A6 /* Info.plist in Resources */,
 				01039F5A18D566910023F2B9 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,6 +430,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		D4C2986D1A674AC500A87612 /* Bump Build Number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Bump Build Number";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# xcode-build-bump.sh\n# @desc Auto-increment the build number every time the project is run.\n# @usage\n# 1. Select: your Target in Xcode\n# 2. Select: Build Phases Tab\n# 3. Select: Add Build Phase -> Add Run Script\n# 4. Paste code below in to new \"Run Script\" section\n# 5. Drag the \"Run Script\" below \"Link Binaries With Libraries\"\n# 6. Insure that your starting build number is set to a whole integer and not a float (e.g. 1, not 1.0)\n\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1B4729B2171A31EB00DBCCBB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -306,14 +456,22 @@
 				D49DF8A91A52516000192658 /* OptionsViewController.swift in Sources */,
 				D49DF8A61A52516000192658 /* AlarmsTableViewController.swift in Sources */,
 				D48E27621A523E2B001130D4 /* AppDelegate.swift in Sources */,
+				D4C1CDDF1A74C30B009F5CF2 /* DebugConsoleViewController.swift in Sources */,
 				D438ED441A527CBB0076F078 /* TabBarViewController.swift in Sources */,
+				D4E7E9B21A74B02F0028D9A6 /* HUDAssets.swift in Sources */,
+				D4E7E9B31A74B02F0028D9A6 /* HUDContentView.swift in Sources */,
 				01247C32190D641200321DA4 /* TockManager.swift in Sources */,
 				D49DF8A51A52516000192658 /* AlarmDetailTableViewController.swift in Sources */,
+				D47849221A7419BF004B4149 /* TrickleQueue.swift in Sources */,
 				D48E27611A523D64001130D4 /* Day.swift in Sources */,
+				D4E7E9B51A74B02F0028D9A6 /* Window.swift in Sources */,
 				D425EACF1A4E3C07004B6B1F /* NRFManager.swift in Sources */,
+				D4E7E9B41A74B02F0028D9A6 /* FrameView.swift in Sources */,
 				D48E27601A523D4D001130D4 /* Alarm.swift in Sources */,
 				D49DF8A81A52516000192658 /* ColorViewController.swift in Sources */,
+				D4E7E9B61A74B02F0028D9A6 /* WindowRootViewController.swift in Sources */,
 				D49DF8A71A52516000192658 /* AlarmTableViewCell.swift in Sources */,
+				D4E7E9B11A74B02F0028D9A6 /* HUDController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,7 +479,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D453512A1A522D310007073C /* AlarmTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,6 +489,11 @@
 			isa = PBXTargetDependency;
 			target = 1B4729B5171A31EB00DBCCBB /* Tick */;
 			targetProxy = D453512B1A522D310007073C /* PBXContainerItemProxy */;
+		};
+		D4E7E9A31A74AFF70028D9A6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PKHUD;
+			targetProxy = D4E7E9A21A74AFF70028D9A6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -378,6 +540,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -394,6 +557,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -411,6 +575,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 1;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -421,6 +586,7 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
@@ -432,17 +598,19 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "Classes/Clock-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$inherited @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = Tick;
+				PRODUCT_NAME = tick;
 				PROVISIONING_PROFILE = "";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s arm64";
+				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -455,17 +623,19 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "Classes/Clock-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$inherited @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = Tick;
+				PRODUCT_NAME = tick;
 				PROVISIONING_PROFILE = "";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s arm64";
+				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

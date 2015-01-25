@@ -1,8 +1,9 @@
 import UIKit
 import Foundation
 
+typealias Option = TockManager.Option
+
 class OptionsViewController: UITableViewController {
-    var tock: TockManager
 
     @IBOutlet var displayTwentyFourHourTime: UISwitch?
     @IBOutlet var blinkColon: UISwitch?
@@ -11,7 +12,6 @@ class OptionsViewController: UITableViewController {
 
     required init(coder aDecoder: NSCoder) {
         let appDelegate = UIApplication.sharedApplication().delegate! as AppDelegate
-        tock = appDelegate.tockManager
         super.init(coder: aDecoder)
     }
 
@@ -27,16 +27,16 @@ class OptionsViewController: UITableViewController {
     }
 
     private func configureFromModel(){
-        let twentyFourHour = tock.setting(TockManager.Option.DISPLAYTWENTYFOURHOURTIME) != 0
+        let twentyFourHour = TockManager.setting(.DisplayTwentyFourHourTime) != 0
         displayTwentyFourHourTime!.on = twentyFourHour
 
-        let blink = tock.setting(TockManager.Option.BLINKCOLON) != 0
+        let blink = TockManager.setting(.BlinkColon) != 0
         blinkColon!.on = blink
 	
-        let brightnessValue = Float(tock.setting(.BRIGHTNESS))
+        let brightnessValue = Float(TockManager.setting(.Brightness))
         brightness!.value = brightnessValue
 
-        let autoBrightnessValue = tock.setting(TockManager.Option.AUTOBRIGHTNESS) != 0
+        let autoBrightnessValue = TockManager.setting(.AutoBrightness) != 0
         autoBrightness!.on = autoBrightnessValue.boolValue;
 	
 	
@@ -50,14 +50,16 @@ class OptionsViewController: UITableViewController {
 }
 
     @IBAction func settingChanged(sender: UISwitch){
+        let value: UInt8 = sender.on ? 1 : 0
         if sender == displayTwentyFourHourTime!{
-            //tock.sendSetting(TockManager.DISPLAYTWENTYFOURHOURTIME, value: sender.on)
+
+            TockManager.setSetting(Option.DisplayTwentyFourHourTime, value: value)
         }
-        if sender == blinkColon! {
-        //tock.sendSetting(TockManager.BLINKCOLON, value: sender.on)
+        else if sender == blinkColon! {
+            TockManager.setSetting(Option.BlinkColon, value: value)
         }
-        if sender == autoBrightness! {
-            //tock.sendSetting(TockManager.AUTOBRIGHTNESS, value: sender.on)
+        else if sender == autoBrightness! {
+            TockManager.setSetting(Option.AutoBrightness, value: value)
             brightness!.enabled = !sender.on
         }
 	
@@ -70,7 +72,7 @@ class OptionsViewController: UITableViewController {
 
         alert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler:nil))
         alert.addAction(UIAlertAction(title: "Reset", style: .Destructive, handler:{ (alertAction:UIAlertAction!) in
-            self.tock.resetToDefaults()
+            TockManager.resetToDefaults()
         }))
 
         self.presentViewController(alert, animated: true, completion: nil)
@@ -78,13 +80,13 @@ class OptionsViewController: UITableViewController {
 
     @IBAction func sliderSettingChanged(slider: UISlider){
         if slider == brightness {
-            //tock.brightness = slider.value
+            TockManager.setSetting(Option.Brightness, value: UInt8(slider.value))
         }
     }
 
     @IBAction func reloadClicked(sender:AnyObject) {
-        tock.detachFromTock()
-        tock.attachToTock()
+        TockManager.detachFromTock()
+        TockManager.searchForTock()
     }
 
 

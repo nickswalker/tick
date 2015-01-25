@@ -123,11 +123,11 @@ public class Alarm{
     }
 
     private class func intToBytes(binary: UInt32)-> [UInt8]{
-        var returnValue: [UInt8] = []
-        returnValue.append( UInt8((binary >> 0)));
-        returnValue.append( UInt8((binary >> 8)));
-        returnValue.append( UInt8((binary >> 16)));
-        returnValue.append( UInt8((binary >> 24)));
+        var returnValue = [UInt8](count: 4, repeatedValue: 0)
+        returnValue[0] = UInt8(binary & 0xFF)
+        returnValue[1] = UInt8((binary & 0xFF00) >> 8)
+        returnValue[2] = UInt8((binary & 0xFF0000) >> 16)
+        returnValue[3] = UInt8((binary & 0xFF000000) >> 24)
         return returnValue
     }
 

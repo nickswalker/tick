@@ -4,13 +4,16 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var tockManager = TockManager()
-
+    private let tock = TockManager()
     override init() {
     }
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        tockManager = TockManager()
-        //attachtoTock
+
+        let manager = NRFManager.sharedInstance
+        manager.verbose = true
+        manager.delegate = tock
+
+        TockManager.searchForTock()
         return true
     }
 
@@ -20,11 +23,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(application: UIApplication) {
-        tockManager.detachFromTock()
+        TockManager.detachFromTock()
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
-        tockManager.attachToTock()
+        TockManager.searchForTock()
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
@@ -32,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(application: UIApplication) {
-        tockManager.detachFromTock()
+        TockManager.detachFromTock()
     }
     
     

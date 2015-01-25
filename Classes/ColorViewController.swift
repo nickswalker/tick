@@ -3,18 +3,10 @@ import UIKit
 
 class ColorViewController: UIViewController{
 
-    var tock: TockManager
-
     @IBOutlet var rSlider: UISlider?
     @IBOutlet var gSlider: UISlider?
     @IBOutlet var bSlider: UISlider?
     @IBOutlet var colorPreview: UIView?
-
-    required init(coder aDecoder: NSCoder) {
-        let appDelegate = UIApplication.sharedApplication().delegate! as AppDelegate
-        tock = appDelegate.tockManager
-        super.init(coder: aDecoder)
-    }
 
     override func viewDidLoad(){
         super.viewDidLoad()

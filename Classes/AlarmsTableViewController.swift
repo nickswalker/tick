@@ -3,14 +3,8 @@ import Foundation
 
 class AlarmsTableViewController: UITableViewController, AlarmCreation, AlarmEditing {
 
-    var tock: TockManager
     @IBOutlet var editButton: UIBarButtonItem?
 
-    required init(coder aDecoder: NSCoder) {
-        let appDelegate = UIApplication.sharedApplication().delegate! as AppDelegate
-        tock = appDelegate.tockManager
-        super.init(coder: aDecoder)
-    }
 
     override func viewDidLoad(){
         super.viewDidLoad()
@@ -39,14 +33,14 @@ class AlarmsTableViewController: UITableViewController, AlarmCreation, AlarmEdit
     }
 
     func alarmWasCreated(alarm: Alarm) {
-        tock.setAlarm(tock.emptyAlarmNumber(), alarm: alarm)
+        TockManager.setAlarm(TockManager.emptyAlarmNumber(), alarm: alarm)
         tableView.reloadData()
     }
 
     func alarmWasEdited(alarm:Alarm, cell: UITableViewCell){
         let table = cell.superview as UITableView
         let indexPath = table.indexPathForCell(cell)
-        tock.setAlarm(indexPath!.row, alarm: alarm)
+        TockManager.setAlarm(indexPath!.row, alarm: alarm)
         tableView.reloadData()
         
     }
@@ -57,7 +51,7 @@ class AlarmsTableViewController: UITableViewController, AlarmCreation, AlarmEdit
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tock.numberOfAlarms()
+        return TockManager.numberOfAlarms()
     }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -68,13 +62,13 @@ class AlarmsTableViewController: UITableViewController, AlarmCreation, AlarmEdit
 
         let cell: AlarmTableViewCell = tableView.dequeueReusableCellWithIdentifier("Alarm", forIndexPath: indexPath) as AlarmTableViewCell
 
-        cell.alarm = tock.alarm(indexPath.row)
+        cell.alarm = TockManager.alarm(indexPath.row)
         return cell;
     }
 
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            //delete the alarm from tock
+            TockManager.clearAlarm(indexPath.row + 1)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
     }
