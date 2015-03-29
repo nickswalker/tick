@@ -38,7 +38,7 @@ class AlarmsTableViewController: UITableViewController, AlarmCreation, AlarmEdit
     }
 
     func alarmWasEdited(alarm:Alarm, cell: UITableViewCell){
-        let table = cell.superview as UITableView
+        let table = cell.superview as! UITableView
         let indexPath = table.indexPathForCell(cell)
         TockManager.setAlarm(indexPath!.row, alarm: alarm)
         tableView.reloadData()
@@ -60,7 +60,7 @@ class AlarmsTableViewController: UITableViewController, AlarmCreation, AlarmEdit
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
-        let cell: AlarmTableViewCell = tableView.dequeueReusableCellWithIdentifier("Alarm", forIndexPath: indexPath) as AlarmTableViewCell
+        let cell: AlarmTableViewCell = tableView.dequeueReusableCellWithIdentifier("Alarm", forIndexPath: indexPath) as! AlarmTableViewCell
 
         cell.alarm = TockManager.alarm(indexPath.row)
         return cell;
@@ -68,14 +68,14 @@ class AlarmsTableViewController: UITableViewController, AlarmCreation, AlarmEdit
 
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            TockManager.clearAlarm(indexPath.row + 1)
+            TockManager.clearAlarm(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let navigationController = segue.destinationViewController as UINavigationController
-        let destinationViewController = navigationController.visibleViewController as AlarmDetailTableViewController
+        let navigationController = segue.destinationViewController as! UINavigationController
+        let destinationViewController = navigationController.visibleViewController as! AlarmDetailTableViewController
         
         if segue.identifier == "CreateAlarm" {
             destinationViewController.delegate = self
@@ -84,7 +84,7 @@ class AlarmsTableViewController: UITableViewController, AlarmCreation, AlarmEdit
             
         }
         else if segue.identifier == "EditAlarm" {
-            let cell = sender as AlarmTableViewCell
+            let cell = sender as! AlarmTableViewCell
             destinationViewController.delegate = cell
             destinationViewController.title = "Edit Alarm"
             destinationViewController.editMode = true

@@ -21,7 +21,7 @@ import Foundation
 
     enum Option: UInt8 {
         case DisplayTwentyFourHourTime = 1,
-        BlinkColon = 2,
+        BlinkColon = 20,
         AutoBrightness = 3,
         Brightness = 4
 
@@ -121,7 +121,7 @@ import Foundation
                 return i
             }
         }
-        return 9;
+        return 10;
     }
 
     //MARK: Message Senders
@@ -173,7 +173,7 @@ import Foundation
     }
 
     private class func fetchAlarms(){
-        for var i = 1; i < 9; i++ {
+        for var i = 0; i < 9; i++ {
             fetchAlarm(i)
         }
     }

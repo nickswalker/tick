@@ -15,6 +15,7 @@
 		01247C3F190DB66500321DA4 /* options-fill@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01247C3B190DB66500321DA4 /* options-fill@2x.png */; };
 		01247C40190DB66500321DA4 /* options@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01247C3C190DB66500321DA4 /* options@2x.png */; };
 		1B4729C4171A31EC00DBCCBB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1B4729C2171A31EC00DBCCBB /* InfoPlist.strings */; };
+		24F5D73C4130CD2DEF813828 /* Pods_Tick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F5C0C77F2E4318CDB72D768 /* Pods_Tick.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		D425EACF1A4E3C07004B6B1F /* NRFManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D425EACE1A4E3C07004B6B1F /* NRFManager.swift */; };
 		D438ED441A527CBB0076F078 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01247C38190D8E8100321DA4 /* TabBarViewController.swift */; };
 		D43CEE8F1A478A0D006CF1B4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D43CEE8D1A478A0D006CF1B4 /* LaunchScreen.xib */; };
@@ -29,16 +30,6 @@
 		D49DF8A81A52516000192658 /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF02B9A171ADC790006A153 /* ColorViewController.swift */; };
 		D49DF8A91A52516000192658 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01551F1818E90D5F00174CA9 /* OptionsViewController.swift */; };
 		D4C1CDDF1A74C30B009F5CF2 /* DebugConsoleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C1CDDD1A74C26A009F5CF2 /* DebugConsoleViewController.swift */; };
-		D4E7E9A01A74AFF70028D9A6 /* PKHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4FBEF7F1A733C0B00965D61 /* PKHUD.framework */; };
-		D4E7E9A11A74AFF70028D9A6 /* PKHUD.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D4FBEF7F1A733C0B00965D61 /* PKHUD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D4E7E9B11A74B02F0028D9A6 /* HUDController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7E9A61A74B02F0028D9A6 /* HUDController.swift */; };
-		D4E7E9B21A74B02F0028D9A6 /* HUDAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7E9A71A74B02F0028D9A6 /* HUDAssets.swift */; };
-		D4E7E9B31A74B02F0028D9A6 /* HUDContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7E9A81A74B02F0028D9A6 /* HUDContentView.swift */; };
-		D4E7E9B41A74B02F0028D9A6 /* FrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7E9A91A74B02F0028D9A6 /* FrameView.swift */; };
-		D4E7E9B51A74B02F0028D9A6 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7E9AA1A74B02F0028D9A6 /* Window.swift */; };
-		D4E7E9B61A74B02F0028D9A6 /* WindowRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7E9AB1A74B02F0028D9A6 /* WindowRootViewController.swift */; };
-		D4E7E9B71A74B02F0028D9A6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4E7E9AD1A74B02F0028D9A6 /* Images.xcassets */; };
-		D4E7E9B81A74B02F0028D9A6 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4E7E9AE1A74B02F0028D9A6 /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,27 +40,6 @@
 			remoteGlobalIDString = 1B4729B5171A31EB00DBCCBB;
 			remoteInfo = Tick;
 		};
-		D4E7E9A21A74AFF70028D9A6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D4FBEF771A733C0B00965D61 /* PKHUD.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = F996321D19514FD8001F73CA;
-			remoteInfo = PKHUD;
-		};
-		D4FBEF7C1A733C0B00965D61 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D4FBEF771A733C0B00965D61 /* PKHUD.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F99631FC19514FAC001F73CA;
-			remoteInfo = "PKHUD Demo";
-		};
-		D4FBEF7E1A733C0B00965D61 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D4FBEF771A733C0B00965D61 /* PKHUD.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F996321E19514FD8001F73CA;
-			remoteInfo = PKHUD;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -79,7 +49,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D4E7E9A11A74AFF70028D9A6 /* PKHUD.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -109,6 +78,9 @@
 		1B4729C9171A31EC00DBCCBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B4729D2171A31EC00DBCCBB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		1BF02B9A171ADC790006A153 /* ColorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorViewController.swift; sourceTree = "<group>"; };
+		2F4F73B2AD362BC81D926D7A /* Pods-Tick.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tick.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tick/Pods-Tick.release.xcconfig"; sourceTree = "<group>"; };
+		4A85F23D195A79733C9DBE60 /* Pods-Tick.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tick.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tick/Pods-Tick.debug.xcconfig"; sourceTree = "<group>"; };
+		5F5C0C77F2E4318CDB72D768 /* Pods_Tick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D425EACE1A4E3C07004B6B1F /* NRFManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NRFManager.swift; sourceTree = "<group>"; };
 		D433D4301A4F711B00D3EC23 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		D43CEE8E1A478A0D006CF1B4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = Classes/en.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -117,16 +89,6 @@
 		D45351291A522D310007073C /* AlarmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmTests.swift; sourceTree = "<group>"; };
 		D478491F1A741893004B4149 /* TrickleQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrickleQueue.swift; sourceTree = "<group>"; };
 		D4C1CDDD1A74C26A009F5CF2 /* DebugConsoleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugConsoleViewController.swift; sourceTree = "<group>"; };
-		D4E7E9A51A74B02F0028D9A6 /* PKHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKHUD.h; sourceTree = "<group>"; };
-		D4E7E9A61A74B02F0028D9A6 /* HUDController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDController.swift; sourceTree = "<group>"; };
-		D4E7E9A71A74B02F0028D9A6 /* HUDAssets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDAssets.swift; sourceTree = "<group>"; };
-		D4E7E9A81A74B02F0028D9A6 /* HUDContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDContentView.swift; sourceTree = "<group>"; };
-		D4E7E9A91A74B02F0028D9A6 /* FrameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameView.swift; sourceTree = "<group>"; };
-		D4E7E9AA1A74B02F0028D9A6 /* Window.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
-		D4E7E9AB1A74B02F0028D9A6 /* WindowRootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowRootViewController.swift; sourceTree = "<group>"; };
-		D4E7E9AD1A74B02F0028D9A6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		D4E7E9AE1A74B02F0028D9A6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D4FBEF771A733C0B00965D61 /* PKHUD.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PKHUD.xcodeproj; path = Vendor/PKHUD/PKHUD.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,7 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4E7E9A01A74AFF70028D9A6 /* PKHUD.framework in Frameworks */,
+				24F5D73C4130CD2DEF813828 /* Pods_Tick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,11 +137,17 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		197EF063D3EF81FAF17B2E2B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5F5C0C77F2E4318CDB72D768 /* Pods_Tick.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		1B4729AD171A31EB00DBCCBB = {
 			isa = PBXGroup;
 			children = (
-				D4E7E9B01A74B02F0028D9A6 /* PKHUD */,
-				D4FBEF771A733C0B00965D61 /* PKHUD.xcodeproj */,
 				D43CEE8D1A478A0D006CF1B4 /* LaunchScreen.xib */,
 				1B4729D1171A31EC00DBCCBB /* MainStoryboard.storyboard */,
 				0161BBD7192948870033F93C /* InfoViewViewController.swift */,
@@ -188,6 +156,8 @@
 				1B4729BF171A31EC00DBCCBB /* Classes */,
 				D45351261A522D310007073C /* Tick Tests */,
 				1B4729B7171A31EB00DBCCBB /* Products */,
+				C3D168A9BDD0AFD158E5D88A /* Pods */,
+				197EF063D3EF81FAF17B2E2B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -243,6 +213,15 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
+		C3D168A9BDD0AFD158E5D88A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4A85F23D195A79733C9DBE60 /* Pods-Tick.debug.xcconfig */,
+				2F4F73B2AD362BC81D926D7A /* Pods-Tick.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D45351261A522D310007073C /* Tick Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,48 +239,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		D4E7E9AC1A74B02F0028D9A6 /* Internal */ = {
-			isa = PBXGroup;
-			children = (
-				D4E7E9A91A74B02F0028D9A6 /* FrameView.swift */,
-				D4E7E9AA1A74B02F0028D9A6 /* Window.swift */,
-				D4E7E9AB1A74B02F0028D9A6 /* WindowRootViewController.swift */,
-			);
-			name = Internal;
-			sourceTree = "<group>";
-		};
-		D4E7E9AF1A74B02F0028D9A6 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				D4E7E9AE1A74B02F0028D9A6 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		D4E7E9B01A74B02F0028D9A6 /* PKHUD */ = {
-			isa = PBXGroup;
-			children = (
-				D4E7E9A51A74B02F0028D9A6 /* PKHUD.h */,
-				D4E7E9A61A74B02F0028D9A6 /* HUDController.swift */,
-				D4E7E9A71A74B02F0028D9A6 /* HUDAssets.swift */,
-				D4E7E9A81A74B02F0028D9A6 /* HUDContentView.swift */,
-				D4E7E9AC1A74B02F0028D9A6 /* Internal */,
-				D4E7E9AD1A74B02F0028D9A6 /* Images.xcassets */,
-				D4E7E9AF1A74B02F0028D9A6 /* Supporting Files */,
-			);
-			name = PKHUD;
-			path = Vendor/PKHUD/PKHUD;
-			sourceTree = "<group>";
-		};
-		D4FBEF781A733C0B00965D61 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				D4FBEF7D1A733C0B00965D61 /* PKHUD Demo.app */,
-				D4FBEF7F1A733C0B00965D61 /* PKHUD.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -309,16 +246,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1B4729DC171A31EC00DBCCBB /* Build configuration list for PBXNativeTarget "Tick" */;
 			buildPhases = (
+				01197383B0AEDADD3B9EF636 /* Check Pods Manifest.lock */,
 				1B4729B2171A31EB00DBCCBB /* Sources */,
 				1B4729B3171A31EB00DBCCBB /* Frameworks */,
 				1B4729B4171A31EB00DBCCBB /* Resources */,
 				D4C2986D1A674AC500A87612 /* Bump Build Number */,
 				D4E7E9A41A74AFF70028D9A6 /* Embed Frameworks */,
+				BF82910BD7D5B5FD5676F741 /* Embed Pods Frameworks */,
+				93104618886A6EFAEF3E70BC /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				D4E7E9A31A74AFF70028D9A6 /* PBXTargetDependency */,
 			);
 			name = Tick;
 			productName = BlueShieldDemo;
@@ -372,12 +311,6 @@
 			mainGroup = 1B4729AD171A31EB00DBCCBB;
 			productRefGroup = 1B4729B7171A31EB00DBCCBB /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = D4FBEF781A733C0B00965D61 /* Products */;
-					ProjectRef = D4FBEF771A733C0B00965D61 /* PKHUD.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				1B4729B5171A31EB00DBCCBB /* Tick */,
@@ -386,29 +319,11 @@
 		};
 /* End PBXProject section */
 
-/* Begin PBXReferenceProxy section */
-		D4FBEF7D1A733C0B00965D61 /* PKHUD Demo.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = "PKHUD Demo.app";
-			remoteRef = D4FBEF7C1A733C0B00965D61 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D4FBEF7F1A733C0B00965D61 /* PKHUD.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = PKHUD.framework;
-			remoteRef = D4FBEF7E1A733C0B00965D61 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
-
 /* Begin PBXResourcesBuildPhase section */
 		1B4729B4171A31EB00DBCCBB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4E7E9B71A74B02F0028D9A6 /* Images.xcassets in Resources */,
 				D43CEE8F1A478A0D006CF1B4 /* LaunchScreen.xib in Resources */,
 				01247C36190D8CC600321DA4 /* alarms-fill@2x.png in Resources */,
 				01247C3F190DB66500321DA4 /* options-fill@2x.png in Resources */,
@@ -416,7 +331,6 @@
 				01247C2F190CAEDC00321DA4 /* MainStoryboard.storyboard in Resources */,
 				1B4729C4171A31EC00DBCCBB /* InfoPlist.strings in Resources */,
 				01247C35190D8CC600321DA4 /* alarms@2x.png in Resources */,
-				D4E7E9B81A74B02F0028D9A6 /* Info.plist in Resources */,
 				01039F5A18D566910023F2B9 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -431,6 +345,51 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		01197383B0AEDADD3B9EF636 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		93104618886A6EFAEF3E70BC /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tick/Pods-Tick-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BF82910BD7D5B5FD5676F741 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tick/Pods-Tick-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		D4C2986D1A674AC500A87612 /* Bump Build Number */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -458,20 +417,14 @@
 				D48E27621A523E2B001130D4 /* AppDelegate.swift in Sources */,
 				D4C1CDDF1A74C30B009F5CF2 /* DebugConsoleViewController.swift in Sources */,
 				D438ED441A527CBB0076F078 /* TabBarViewController.swift in Sources */,
-				D4E7E9B21A74B02F0028D9A6 /* HUDAssets.swift in Sources */,
-				D4E7E9B31A74B02F0028D9A6 /* HUDContentView.swift in Sources */,
 				01247C32190D641200321DA4 /* TockManager.swift in Sources */,
 				D49DF8A51A52516000192658 /* AlarmDetailTableViewController.swift in Sources */,
 				D47849221A7419BF004B4149 /* TrickleQueue.swift in Sources */,
 				D48E27611A523D64001130D4 /* Day.swift in Sources */,
-				D4E7E9B51A74B02F0028D9A6 /* Window.swift in Sources */,
 				D425EACF1A4E3C07004B6B1F /* NRFManager.swift in Sources */,
-				D4E7E9B41A74B02F0028D9A6 /* FrameView.swift in Sources */,
 				D48E27601A523D4D001130D4 /* Alarm.swift in Sources */,
 				D49DF8A81A52516000192658 /* ColorViewController.swift in Sources */,
-				D4E7E9B61A74B02F0028D9A6 /* WindowRootViewController.swift in Sources */,
 				D49DF8A71A52516000192658 /* AlarmTableViewCell.swift in Sources */,
-				D4E7E9B11A74B02F0028D9A6 /* HUDController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,11 +442,6 @@
 			isa = PBXTargetDependency;
 			target = 1B4729B5171A31EB00DBCCBB /* Tick */;
 			targetProxy = D453512B1A522D310007073C /* PBXContainerItemProxy */;
-		};
-		D4E7E9A31A74AFF70028D9A6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = PKHUD;
-			targetProxy = D4E7E9A21A74AFF70028D9A6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -592,6 +540,7 @@
 		};
 		1B4729DD171A31EC00DBCCBB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A85F23D195A79733C9DBE60 /* Pods-Tick.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -604,7 +553,7 @@
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "Classes/Clock-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				LD_RUNPATH_SEARCH_PATHS = "$inherited @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = $inherited;
 				PRODUCT_NAME = tick;
 				PROVISIONING_PROFILE = "";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
@@ -617,6 +566,7 @@
 		};
 		1B4729DE171A31EC00DBCCBB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F4F73B2AD362BC81D926D7A /* Pods-Tick.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -629,7 +579,7 @@
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "Classes/Clock-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				LD_RUNPATH_SEARCH_PATHS = "$inherited @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = $inherited;
 				PRODUCT_NAME = tick;
 				PROVISIONING_PROFILE = "";
 				SWIFT_INSTALL_OBJC_HEADER = YES;

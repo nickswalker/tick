@@ -1,0 +1,19 @@
+PODS:
+  - PKHUD (2.0.1)
+
+DEPENDENCIES:
+  - PKHUD (from `https://github.com/pkluz/PKHUD.git`)
+
+EXTERNAL SOURCES:
+  PKHUD:
+    :git: https://github.com/pkluz/PKHUD.git
+
+CHECKOUT OPTIONS:
+  PKHUD:
+    :commit: 40eb49906bc2b6969c63a47e1a5bed48bf8d5b8e
+    :git: https://github.com/pkluz/PKHUD.git
+
+SPEC CHECKSUMS:
+  PKHUD: a35d89fd82d0aeb67f53de086b3029aea3423b74
+
+COCOAPODS: 0.36.1

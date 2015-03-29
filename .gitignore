@@ -16,4 +16,4 @@ DerivedData
 .idea/
 *.hmap
 project.xcworkspace
-Vendor/*
+Pods/
