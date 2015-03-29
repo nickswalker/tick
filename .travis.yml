@@ -1,5 +1,5 @@
 language: objective-c
 xcode_project: Tick.xcodeproj # path to your xcodeproj folder
-xcode_scheme: Tick
+xcode_scheme: TickTests
 before_install:
   - gem install cocoapods -v '0.36.1'
