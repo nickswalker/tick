@@ -1,7 +1,7 @@
 Tick
 ====
 
-<img src="Design Resources/icon.png" title="App icon." width="100" />
+[![Build Status](http://img.shields.io/travis/nickswalker/tick/master.svg?style=flat)](https://travis-ci.org/nickswalker/tick)
 
 An iOS interface for [Tock](https://github.com/nickswalker/tock-firmware), the nightstand alarm clock. Independent Study Mentorship project for senior year at Communications Arts High School (2014).
 
